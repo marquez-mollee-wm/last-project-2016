@@ -96,14 +96,14 @@ foreach($dbh->query($query) as $row) {
             <li><div class="dropdown">
                     <button class="dropbtn red darken-4">Movie Categories</button>
                     <div class="dropdown-content2">
-                        <a href="search.php?animal=Action">Action</a>
-                        <a href="search.php?animal=Anime">Anime</a>
-                        <a href="search.php?animal=Comedy">Comedy</a>
-                        <a href="search.php?animal=Documentary">Documentary</a>
-                        <a href="search.php?animal=Drama">Drama</a>
-                        <a href="search.php?animal=Family">Family</a>
-                        <a href="search.php?animal=Horror">Horror</a>
-                        <a href="search.php?animal=Sci-Fi">Sci-Fi</a>
+                        <a href="category.php?categories=Action">Action</a>
+                        <a href="category.php?categories=Anime">Anime</a>
+                        <a href="category.php?categories=Comedy">Comedy</a>
+                        <a href="category.php?categories=Documentary">Documentary</a>
+                        <a href="category.php?categories=Drama">Drama</a>
+                        <a href="category.php?categories=Family">Family</a>
+                        <a href="category.php?categories=Horror">Horror</a>
+                        <a href="category.php?categories=Sci-Fi">Sci-Fi</a>
                     </div>
                 </div></li>
         </ul>
