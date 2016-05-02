@@ -22,7 +22,7 @@
 </section>
 <?php
 $error_msg = "";
-$dbh = new PDO('mysql:host=localhost;dbname=', 'root', 'root');
+$dbh = new PDO('mysql:host=localhost;dbname=MovieZ', 'root', 'root');
 if(!isset($_POST['submit'])) {
 
 
@@ -46,7 +46,7 @@ if(!isset($_POST['submit'])) {
         }
     }
     else {
-        $error_msg = "Sorry, enter your userame and password to log in";
+        $error_msg = "Sorry, enter your username and password to log in";
     }
 }
 ?>
