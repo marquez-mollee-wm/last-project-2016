@@ -1,12 +1,14 @@
 <?php
 require_once('appvar.php');
+require_once (header.php);
 $dbh = new PDO('mysql:host=localhost;dbname=MovieZ', 'root', 'root');
 
-// Retrieve the user data from MySQL
-$query = "SELECT idmovies, name, picture FROM movies";
-$stmt = $dbh->prepare($query);
-$stmt->execute();
-$result = $stmt->fetchAll();
+if(isset($_GET['idcategories'])) {
+    $query = "SELECT idmovies, name, picture FROM movies where idcategories = '" . $_GET['idcategories'] . "'";
+    $stmt = $dbh->prepare($query);
+    $stmt->execute();
+    $result = $stmt->fetchAll();
+}
 
 echo '<table>';
 foreach($result as $row) {
