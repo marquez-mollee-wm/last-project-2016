@@ -1,3 +1,15 @@
+<?php
+require_once ('connect.php');
+
+$query = "SELECT * FROM categories";
+$stmt = $dbh->prepare($query);
+$stmt->execute();
+
+foreach($dbh->query($query) as $row) {
+    echo $row['name'];
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,10 +28,6 @@
     <script type="text/javascript" src="scripts.js"></script>
 </head>
 
-<script type="text/javascript">
-    $('.button-collapse').sideNav({menuWidth: 240, activationWidth: 70, edge: 'right'});
-</script>
-
 <style>
     .brand-logo {
         width: 1.7em;
@@ -30,11 +38,11 @@
 
          /* Style The Dropdown Button */
      .dropbtn {
+         margin-top: -.2em;
          color: white;
-         font-size: 16px;
          border: none;
          cursor: pointer;
-         height: 4em;
+         height: 3em;
      }
 
     /* The container <div> - needed to position the dropdown content */
@@ -78,12 +86,6 @@
 </style>
 
 <!-- Dropdown Structure -->
-<ul id="dropdown1" class="dropdown-content">
-    <li><a href="#!">one</a></li>
-    <li><a href="#!">two</a></li>
-    <li class="divider"></li>
-    <li><a href="#!">three</a></li>
-</ul>
 <nav class="red darken-4">
     <div class="nav-wrapper">
         <a href="index.php" class="brand-logo"><img class="brand-logo" src="moviez.png"></a>
@@ -94,14 +96,14 @@
             <li><div class="dropdown">
                     <button class="dropbtn red darken-4">Movie Categories</button>
                     <div class="dropdown-content2">
-                        <a href="#">Action</a>
-                        <a href="#">Anime</a>
-                        <a href="#">Comedy</a>
-                        <a href="#">Documentary</a>
-                        <a href="#">Drama</a>
-                        <a href="#">Family</a>
-                        <a href="#">Horror</a>
-                        <a href="#">Sci-Fi</a>
+                        <a href="search.php?animal=Action">Action</a>
+                        <a href="search.php?animal=Anime">Anime</a>
+                        <a href="search.php?animal=Comedy">Comedy</a>
+                        <a href="search.php?animal=Documentary">Documentary</a>
+                        <a href="search.php?animal=Drama">Drama</a>
+                        <a href="search.php?animal=Family">Family</a>
+                        <a href="search.php?animal=Horror">Horror</a>
+                        <a href="search.php?animal=Sci-Fi">Sci-Fi</a>
                     </div>
                 </div></li>
         </ul>
