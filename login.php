@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel="stylesheet" href="signstyle.css">
+    <link rel="stylesheet" href="css/signstyle.css">
     <meta charset="UTF-8">
     <title>Log in for BeanLeaf</title>
 </head>

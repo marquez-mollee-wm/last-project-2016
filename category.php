@@ -1,6 +1,6 @@
 <?php
 require_once('appvar.php');
-require_once (header.php);
+require_once ('header.php');
 $dbh = new PDO('mysql:host=localhost;dbname=MovieZ', 'root', 'root');
 
 if(isset($_GET['idcategories'])) {

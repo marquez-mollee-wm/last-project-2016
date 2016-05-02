@@ -25,7 +25,7 @@ foreach($dbh->query($query) as $row) {
     <!--Javascript-->
     <script type="text/javascript" src="js/materialize.min.js"></script>
     <script type="text/javascript" src="js/materialize.js"></script>
-    <script type="text/javascript" src="scripts.js"></script>
+    <script type="text/javascript" src="js/scripts.js"></script>
 </head>
 
 <style>

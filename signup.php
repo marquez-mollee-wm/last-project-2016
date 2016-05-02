@@ -1,7 +1,7 @@
 <html>
 <head>
     <title>Signup for Moviez</title>
-    <link rel="stylesheet" href="signstyle.css">
+    <link rel="stylesheet" href="css/signstyle.css">
 </head>
 <body>
 <br>
