@@ -21,11 +21,6 @@ foreach($dbh->query($query) as $row) {
     <!-- CSS  -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
-
-    <!--Javascript-->
-    <script type="text/javascript" src="js/materialize.min.js"></script>
-    <script type="text/javascript" src="js/materialize.js"></script>
-    <script type="text/javascript" src="scripts.js"></script>
 </head>
 
 <style>
@@ -85,6 +80,12 @@ foreach($dbh->query($query) as $row) {
     }
 </style>
 
+<body>
+<!-- Javascript Stuff -->
+<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+<script type="text/javascript" src="js/materialize.min.js"></script>
+<script type="text/javascript" src="scripts.js"></script>
+
 <!-- Dropdown Structure -->
 <nav class="red darken-4">
     <div class="nav-wrapper">
@@ -109,3 +110,4 @@ foreach($dbh->query($query) as $row) {
         </ul>
     </div>
 </nav>
+</body>
