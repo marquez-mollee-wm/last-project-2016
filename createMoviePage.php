@@ -49,7 +49,6 @@ require_once('header.php');
         color: white;
         text-decoration: none;
     }
-
 </style>
 
 <body>
