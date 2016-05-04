@@ -25,6 +25,9 @@ foreach($dbh->query($query) as $row) {
 </head>
 
 <style>
+    .dropdown{
+        z-index: 99;
+    }
     .brand-logo {
         width: 1.7em;
         height: 1.7em;
