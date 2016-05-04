@@ -15,20 +15,19 @@ foreach($dbh->query($query) as $row) {
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
-    <title>Parallax Template - Materialize</title>
-    <link rel="icon" type="image/png" href="moviez.png">
+    <title>Moviez</title>
+    <link rel="icon" type="image/png" href="moviez.png"/>
 
     <!-- CSS  -->
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
     <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
-
-    <!--Javascript-->
-    <script type="text/javascript" src="js/materialize.min.js"></script>
-    <script type="text/javascript" src="js/materialize.js"></script>
-    <script type="text/javascript" src="js/scripts.js"></script>
+    <link href="styles.css"/>
 </head>
 
 <style>
+    .dropdown{
+        z-index: 99;
+    }
     .brand-logo {
         width: 1.7em;
         height: 1.7em;
@@ -59,6 +58,7 @@ foreach($dbh->query($query) as $row) {
         background-color: #f9f9f9;
         min-width: 160px;
         box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+        z-index: 5;
     }
 
     /* Links inside the dropdown */
@@ -85,7 +85,23 @@ foreach($dbh->query($query) as $row) {
     }
 </style>
 
+<body>
+<!-- Javascript Stuff -->
+<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+<script type="text/javascript" src="js/materialize.min.js"></script>
+<script type="text/javascript" src="scripts.js"></script>
+
 <!-- Dropdown Structure -->
+<ul id="dropdown1" class="dropdown-content">
+    <li><a href="category.php?categories=Action">Action</a></li>
+    <li><a href="category.php?categories=Anime">Anime</a></li>
+    <li><a href="category.php?categories=Comedy">Comedy</a></li>
+    <li><a href="category.php?categories=Documentary">Documentary</a></li>
+    <li><a href="category.php?categories=Drama">Drama</a></li>
+    <li><a href="category.php?categories=Family">Family</a></li>
+    <li><a href="category.php?categories=Horror">Horror</a></li>
+    <li><a href="category.php?categories=Sci-Fi">Sci-Fi</a></li>
+</ul>
 <nav class="red darken-4">
     <div class="nav-wrapper">
         <a href="index.php" class="brand-logo"><img class="brand-logo" src="moviez.png"></a>
@@ -93,19 +109,8 @@ foreach($dbh->query($query) as $row) {
             <li><a href="login.php">Login</a></li>
             <li><a href="signup.php">Sign Up</a></li>
             <!-- Dropdown Trigger -->
-            <li><div class="dropdown">
-                    <button class="dropbtn red darken-4">Movie Categories</button>
-                    <div class="dropdown-content2">
-                        <a href="category.php?categories=Action">Action</a>
-                        <a href="category.php?categories=Anime">Anime</a>
-                        <a href="category.php?categories=Comedy">Comedy</a>
-                        <a href="category.php?categories=Documentary">Documentary</a>
-                        <a href="category.php?categories=Drama">Drama</a>
-                        <a href="category.php?categories=Family">Family</a>
-                        <a href="category.php?categories=Horror">Horror</a>
-                        <a href="category.php?categories=Sci-Fi">Sci-Fi</a>
-                    </div>
-                </div></li>
+            <li><a class="dropdown-button" href="#!" data-activates="dropdown1">Categories<i class="material-icons right">arrow_drop_down</i></a></li>
         </ul>
     </div>
 </nav>
+</body>
