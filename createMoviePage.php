@@ -49,9 +49,6 @@ require_once('header.php');
         color: white;
         text-decoration: none;
     }
-    #addPgFm {
-        z-index: -10;
-    }
 </style>
 
 <body>

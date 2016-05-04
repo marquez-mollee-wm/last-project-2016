@@ -89,6 +89,16 @@ foreach($dbh->query($query) as $row) {
 <script type="text/javascript" src="scripts.js"></script>
 
 <!-- Dropdown Structure -->
+<ul id="dropdown1" class="dropdown-content">
+    <li><a href="category.php?categories=Action">Action</a></li>
+    <li><a href="category.php?categories=Anime">Anime</a></li>
+    <li><a href="category.php?categories=Comedy">Comedy</a></li>
+    <li><a href="category.php?categories=Documentary">Documentary</a></li>
+    <li><a href="category.php?categories=Drama">Drama</a></li>
+    <li><a href="category.php?categories=Family">Family</a></li>
+    <li><a href="category.php?categories=Horror">Horror</a></li>
+    <li><a href="category.php?categories=Sci-Fi">Sci-Fi</a></li>
+</ul>
 <nav class="red darken-4">
     <div class="nav-wrapper">
         <a href="index.php" class="brand-logo"><img class="brand-logo" src="moviez.png"></a>
@@ -96,19 +106,7 @@ foreach($dbh->query($query) as $row) {
             <li><a href="login.php">Login</a></li>
             <li><a href="signup.php">Sign Up</a></li>
             <!-- Dropdown Trigger -->
-            <li><div class="dropdown">
-                    <button class="dropbtn red darken-4">Movie Categories</button>
-                    <div class="dropdown-content2">
-                        <a href="category.php?categories=Action">Action</a>
-                        <a href="category.php?categories=Anime">Anime</a>
-                        <a href="category.php?categories=Comedy">Comedy</a>
-                        <a href="category.php?categories=Documentary">Documentary</a>
-                        <a href="category.php?categories=Drama">Drama</a>
-                        <a href="category.php?categories=Family">Family</a>
-                        <a href="category.php?categories=Horror">Horror</a>
-                        <a href="category.php?categories=Sci-Fi">Sci-Fi</a>
-                    </div>
-                </div></li>
+            <li><a class="dropdown-button" href="#!" data-activates="dropdown1">Categories<i class="material-icons right">arrow_drop_down</i></a></li>
         </ul>
     </div>
 </nav>
