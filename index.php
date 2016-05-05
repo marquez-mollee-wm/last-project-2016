@@ -30,7 +30,7 @@ require_once ('header.php');
         </div>
         <div class="card-reveal">
             <span class="card-title grey-text text-darken-4">About<i class="material-icons right">close</i></span>
-            <p></p>
+            <p>Moviez it is a place where you go to put reviews about the movie they have watch. To say how good or bad the movie is. Or other people would read upon or the rating of the movie before the they actually watch the movie.The web has a variety of categories to romance to war.</p>
         </div>
     </div>
 </div>
@@ -39,8 +39,7 @@ require_once ('header.php');
     <div class="col s12 m5 right">
         <div class="card-panel red">
             <h3 class="white-text">How It Works</h3>
-          <span class="white-text">I am a very simple card. I am good at containing small bits of information.
-          I am convenient because I require little markup to use effectively. I am similar to what is called a panel in other frameworks.
+          <span class="white-text">This is how the moviez works. After you are done with the movie you have watch, you can go make a page of the movie then put it a category, than in a rating (G or PG) of movie, and how good it is. This is all depending on you how good it is.
           </span>
         </div>
     </div>
