@@ -13,7 +13,7 @@
 
 <header>
     </br>
-    <a href="index.html" class="logo">
+    <a href="index.php" class="logo">
         <em><strong>MovieZ</strong></em>
     </a>
 </header>
