@@ -1,0 +1,33 @@
+body{
+    background-color: #3f3f3f;
+}
+div.naruto{
+    float: right;
+    background-color: #3f3f3f;
+}
+div.sasuke{
+    float: right;
+    background-color: #3f3f3f;
+}
+div.menma{
+    text-align: center;
+    background-color: #3f3f3f;
+}
+div.ryuu{
+    text-align: center;
+    height: 335px;
+    width: 1189px;
+}
+div.taro{
+    text-align: center;
+}
+#footer{
+    background-color: #3babe6;
+    text-align: center;
+    font-family: "Comic Sans MS", cursive, sans-serif;
+    font-size: small;
+}
+a{
+    color: whitesmoke;
+}
+/* the hover thingy */
