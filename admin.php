@@ -33,9 +33,51 @@
         <a href="index.php" class="brand-logo"><img class="brand-logo" src="moviez.png"></a>
         <h3 class="brand-logo left">- Admin</h3>
         <ul class="right hide-on-med-and-down">
-            <li><a href="login.php">Approve</a></li>
-            <li><a href="signup.php">Edit/Delete Pages</a></li>
+            <li><a href="index.php">Home</a></li>
+            <li><a href="...">idk</a></li>
         </ul>
     </div>
 </nav>
+
+<?php
+require_once('authorize.php');
+
+require_once('appvars.php');
+
+// Connect to the database
+$dbh = new PDO('mysql:host=localhost;dbname=MovieZ', 'root', 'root');
+// Retrieve the score data from MySQL
+$query = "SELECT * FROM movies ";
+$stmt= $dbh->prepare($query);
+$stmt->execute();
+$result= $stmt->fetchAll();
+// Loop through the array of score data, formatting it as HTML
+echo '<table>';
+foreach ($result as $row) {
+    // Display the score data
+    echo '<tr><td>' . $row['picture'] . '</td>';
+    echo '<td><strong>' . $row['name'] . '</strong></td>';
+    echo '<td>' . $row['director'] . '</td>';
+    echo '<td>' . $row['release'] . '</td>';
+    echo '<td>' . $row['description'] . '</td>';
+    echo '<td>' . $row['rating'] . '</td>';
+    echo '<td><a href="removemovie.php?id='. $row['id'] .
+        '&amp;name=' . $row['name'] . '&amp;director=' . $row['director'] .
+        '&amp;release=' . $row['release'] . '&amp;description=' . $row['description'] .
+        '&amp;rating=' . $row['rating'] .
+        '&amp;pic=' . $row['picture'] .'">Remove</a></td>';
+
+    if( $row['approve'] == '0'){
+        echo '<td><a href="approvemovie.php?id=' . $row['id'] .
+            '&amp;name=' . $row['name'] . '&amp;director=' . $row['director'] .
+            '&amp;release=' . $row['release'] . '&amp;description=' . $row['description'] .
+            '&amp;rating=' . $row['rating'] .
+            '&amp;pic=' . $row['picture'] . '">Approve</a></td></tr>';
+    }
+}
+
+echo '</table>';
+
+?>
+​
 </body>
