@@ -6,6 +6,7 @@
     <title>Log in for Moviez</title>
 </head>
 <body>
+
 <br>
 <header>
     <a href="index.html" class="logo">
