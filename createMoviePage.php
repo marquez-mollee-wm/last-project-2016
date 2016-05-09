@@ -1,4 +1,6 @@
 <?php
+require_once ('connect.php');
+require_once ('startsession.php');
 
 if (@$_POST['formSubmit']) {
     $errorMessage = false;
@@ -21,15 +23,18 @@ if (@$_POST['formSubmit']) {
     }
 
 
-    $stmt = $dbh->prepare("INSERT INTO movies (name, director, release, description, picture, rating, moviescol, categories_idcategories, categories_idcategories, approve) VALUES (:title, :director, :releaseDate, :description, :picture, :rating, :moviescol, :categories_idcategories, :categories_idcategories, :approve)");
+    $stmt = $dbh->prepare("INSERT INTO `MovieZ`.`movies` (`name`, `director`, `release`, `description`, `picture`, `approve`, `rating`, `categories_idcategories`, `users_idusers`) VALUES (:title , :director, :releaseDate, :description, null, '0', :rating, :categoryId, :userId);
+");
 
     $result = $stmt->execute(
         array(
             'title' => $_POST['title'],
             'director' => $_POST['director'],
-            'picture' => $_POST['picture'],
+            'releaseDate' => $_POST['releaseDate'],
+            'description' => $_POST['description'],
             'rating' => $_POST['rating'],
-            'approve' => '0',
+            'categoryId' => $_POST['category'],
+            'userId' => $_SESSION['idusers']
         )
 
     );
@@ -55,7 +60,7 @@ require_once('header.php');
 <div class="container">
     <h2 class="red-text text-darken-4">Make Your Page!</h2>
     <div id="addPgFm" class="row red-form form-darken-4">
-        <form class="col s12">
+        <form method="post" class="col s12">
             <div class="row">
                 <div class="input-field col s6">
                     <input id="input_text" type="text" name="title">
@@ -69,14 +74,45 @@ require_once('header.php');
                 </div>
             </div>
             <div class="row">
-                <div class="input-field col s7">
-                    <input id="releaseDt" name="releaseDate" type="date" class="datepicker">
+                <div class="input-field col s3">
+                    <input id="releaseDt" name="releaseDate" type="text" maxlength="4">
+                    <label for="releaseDt">Release Year</label>
                 </div>
+            </div>
+            <div class="row">
+                <p>
+                    <input class="with-gap" name="category" type="radio" id="actionCat" />
+                    <label for="actionCat">Action</label>
+
+                    <input class="with-gap" name="category" type="radio" id="animeCat"  />
+                    <label for="animeCat">Anime</label>
+                </p>
+                <p>
+                    <input class="with-gap" name="category" type="radio" id="comedyCat" />
+                    <label for="comedyCat">Comedy</label>
+
+                    <input class="with-gap" name="category" type="radio" id="documentaryCat"  />
+                    <label for="documentaryCat">Documentary</label>
+                </p>
+                <p>
+                    <input class="with-gap" name="category" type="radio" id="dramaCat"  />
+                    <label for="dramaCat">Drama</label>
+
+                    <input class="with-gap" name="category" type="radio" id="familyCat"  />
+                    <label for="familyCat">Family</label>
+                </p>
+                <p>
+                    <input class="with-gap" name="category" type="radio" id="horrorCat"  />
+                    <label for="horrorCat">Horror</label>
+
+                    <input class="with-gap" name="category" type="radio" id="sciFiCat"  />
+                    <label for="sciFiCat">Sci-Fi</label>
+                </p>
             </div>
             <div class="row">
                 <div class="input-field col s11">
                     <textarea id="textarea1" name="description" class="materialize-textarea"></textarea>
-                    <label for="textarea1">Description</label>
+                    <label for="sciFiCat">Description</label>
                 </div>
             </div>
             <div class="row">
@@ -95,18 +131,19 @@ require_once('header.php');
                 <h5 class="red-text text-darken-4">Score It!</h5>
                 <div class="input-field col s9">
                     <p class="range-field">
-                        <input type="range" name="rating" id="test5" min="0" max="100" />
+                        <input type="range" name="rating" id="test5" min="0" max="100"/>
                     </p>
                 </div>
             </div>
-            <button class="waves-effect waves-light btn-large" type="submit" name="formSubmit" value="1"><a class="makePgButton">Submit Page</a></button>
+            <button class="waves-effect waves-light btn-large" type="submit" name="formSubmit" value="1"><a
+                    class="makePgButton">Submit Page</a></button>
         </form>
 
     </div>
 </div>
 
 <?php
-require_once ('footer.php');
+require_once('footer.php');
 ?>
 
 </body>

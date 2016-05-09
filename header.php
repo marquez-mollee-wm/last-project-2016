@@ -106,8 +106,15 @@ foreach($dbh->query($query) as $row) {
     <div class="nav-wrapper">
         <a href="index.php" class="brand-logo"><img class="brand-logo" src="moviez.png"></a>
         <ul class="right hide-on-med-and-down">
-            <li><a href="login.php">Login</a></li>
-            <li><a href="signup.php">Sign Up</a></li>
+            <?php if (isset($_SESSION['username'])) {
+                echo '<li><a href="logout.php">Log Out (' . $_SESSION['username'] . ')</a></li>';
+
+            }
+            else{
+                echo '<li><a href="login.php">Login</a></li>';
+                echo '<li><a href="signup.php">Sign Up</a></li>';
+            }
+            ?>
             <!-- Dropdown Trigger -->
             <li><a class="dropdown-button" href="#!" data-activates="dropdown1">Categories<i class="material-icons right">arrow_drop_down</i></a></li>
         </ul>
