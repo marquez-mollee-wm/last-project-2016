@@ -17,7 +17,7 @@ require_once ('header.php');
         margin-bottom: 15em;
     }
     #account-user{
-        left: 90em;
+        : 0em;
     }
     #non-account{
 
