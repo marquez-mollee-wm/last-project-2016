@@ -1,7 +1,12 @@
 <html>
 <head>
+<<<<<<< HEAD
+    <title>Signup for Moviez</title>
+    <link rel="stylesheet" href="css/signstyle.css">
+=======
     <title>Signup for MovieZ</title>
     <link rel="stylesheet" href="signstyle.css">
+>>>>>>> master
 </head>
 <body>
 <body>

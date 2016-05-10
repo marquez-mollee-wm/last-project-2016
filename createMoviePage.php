@@ -38,11 +38,8 @@ if (@$_POST['formSubmit']) {
         )
 
     );
-
-    if (!$result) {
-
-    }
 }
+header('index.php');
 ?>
 
 <?php
@@ -63,19 +60,19 @@ require_once('header.php');
         <form method="post" class="col s12">
             <div class="row">
                 <div class="input-field col s6">
-                    <input id="input_text" type="text" name="title">
+                    <input id="input_text" type="text" name="title" required>
                     <label for="input_text">Title</label>
                 </div>
             </div>
             <div class="row">
                 <div class="input-field col s6">
-                    <input id="input_text2" type="text" name="director">
+                    <input id="input_text2" type="text" name="director" required>
                     <label for="input_text2">Director</label>
                 </div>
             </div>
             <div class="row">
                 <div class="input-field col s3">
-                    <input id="releaseDt" name="releaseDate" type="text" maxlength="4">
+                    <input id="releaseDt" name="releaseDate" type="text" maxlength="4" required>
                     <label for="releaseDt">Release Year</label>
                 </div>
             </div>
@@ -111,7 +108,7 @@ require_once('header.php');
             </div>
             <div class="row">
                 <div class="input-field col s11">
-                    <textarea id="textarea1" name="description" class="materialize-textarea"></textarea>
+                    <textarea id="textarea1" name="description" class="materialize-textarea" required></textarea>
                     <label for="sciFiCat">Description</label>
                 </div>
             </div>
@@ -122,7 +119,7 @@ require_once('header.php');
                         <input type="file">
                     </div>
                     <div class="file-path-wrapper">
-                        <input class="file-path validate" type="text" placeholder="Upload a Cover For Your Movie!">
+                        <input class="file-path validate" type="text" placeholder="Upload a Cover For Your Movie!" >
                     </div>
                 </div>
             </div>
@@ -131,7 +128,7 @@ require_once('header.php');
                 <h5 class="red-text text-darken-4">Score It!</h5>
                 <div class="input-field col s9">
                     <p class="range-field">
-                        <input type="range" name="rating" id="test5" min="0" max="100"/>
+                        <input type="range" name="rating" id="test5" min="0" max="100" required/>
                     </p>
                 </div>
             </div>
