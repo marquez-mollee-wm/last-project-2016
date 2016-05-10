@@ -1,14 +1,19 @@
 <html>
 <head>
+<<<<<<< HEAD
+    <title>Signup for Moviez</title>
+    <link rel="stylesheet" href="css/signstyle.css">
+=======
     <title>Signup for MovieZ</title>
     <link rel="stylesheet" href="signstyle.css">
+>>>>>>> master
 </head>
 <body>
 <body>
 
 <header>
     </br>
-    <a href="index.html" class="logo">
+    <a href="index.php" class="logo">
         <em><strong>MovieZ</strong></em>
     </a>
 </header>

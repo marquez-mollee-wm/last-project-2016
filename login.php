@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel="stylesheet" href="signstyle.css">
+    <link rel="stylesheet" href="css/signstyle.css">
     <meta charset="UTF-8">
     <title>Log in for Moviez</title>
 </head>
@@ -9,7 +9,7 @@
 
 <br>
 <header>
-    <a href="index.html" class="logo">
+    <a href="index.php" class="logo">
         <strong><em>Moviez</em></strong>
     </a>
     <nav>
@@ -54,7 +54,7 @@ if (!isset($_SESSION['idusers'])) {
                 $_SESSION['username'] = $row['username'];
                 setcookie('idusers', $row['idusers'], time() + (60 * 60 * 24 * 30));    // expires in 30 days
                 setcookie('username', $row['username'], time() + (60 * 60 * 24 * 30));  // expires in 30 days
-                $home_url = 'http://' . $_SERVER['HTTP_HOST'] . dirname($_SERVER['PHP_SELF']) . '/index.html';
+                $home_url = 'http://' . $_SERVER['HTTP_HOST'] . dirname($_SERVER['PHP_SELF']) . '/index.php';
                 header('Location: ' . $home_url);
             }
             else {
