@@ -70,15 +70,15 @@ if (isset($_POST['submit'])) {
     }
 }
 else (isset($id) && isset($name) && isset($description)) ;{
-    echo '<p>Are you sure you want to approve the following high score?</p>';
+    echo '<p>Are you sure you want to remove the following high score?</p>';
     echo '<p><strong>Name: </strong>' . $name . '<br /><strong>Director: </strong>' . $director .
         '<br /><strong>Release: </strong>' . $release .
         '<br /><strong>Description: </strong>' . $description .
         '<br /><strong>Release Date: </strong>' . $release . '</p>';
-    echo '<form method="post" action="approvemovie.php">';
+    echo '<form method="post" action="removemovie.php">';
     echo '<img src="' . MZ_UPLOADPATH . $pic . '" width="160" alt="Score image" /><br />';
-    echo '<input type="radio" name="confirm" value="Yes" /> Yes ';
-    echo '<input type="radio" name="confirm" value="No" checked="checked" /> No <br />';
+    echo '<input type="radio" name="confirm" value="Yes"/> Yes ';
+    echo '<input type="radio" name="confirm" value="No" checked="checked"/> No <br />';
     echo '<input type="submit" value="Submit" name="submit" />';
     echo '<input type="hidden" name="id" value="' . $id . '" />';
     echo '<input type="hidden" name="name" value="' . $name . '" />';

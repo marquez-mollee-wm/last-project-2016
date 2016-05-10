@@ -61,14 +61,14 @@ foreach ($result as $row) {
     echo '<td>' . $row['release'] . '</td>';
     echo '<td>' . $row['description'] . '</td>';
     echo '<td>' . $row['rating'] . '</td>';
-    echo '<td><a href="removemovie.php?id='. $row['id'] .
+    echo '<td><a href="removemovie.php?idmovies='. $row['idmovies'] .
         '&amp;name=' . $row['name'] . '&amp;director=' . $row['director'] .
         '&amp;release=' . $row['release'] . '&amp;description=' . $row['description'] .
         '&amp;rating=' . $row['rating'] .
         '&amp;pic=' . $row['picture'] .'">Remove</a></td>';
 
     if( $row['approve'] == '0'){
-        echo '<td><a href="approvemovie.php?id=' . $row['id'] .
+        echo '<td><a href="approvemovie.php?idmovies=' . $row['idmovies'] .
             '&amp;name=' . $row['name'] . '&amp;director=' . $row['director'] .
             '&amp;release=' . $row['release'] . '&amp;description=' . $row['description'] .
             '&amp;rating=' . $row['rating'] .
