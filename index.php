@@ -1,4 +1,5 @@
 <?php
+    require_once('startsession.php');
 ?>
 
 <?php
@@ -36,7 +37,7 @@ require_once ('header.php');
         </div>
         <div class="card-reveal">
             <span class="card-title red-text text-red-4">About<i class="material-icons right">close</i></span>
-            <p class="red-text">Welcome to Moviez. Moviez it is a place where you go to put reviews or a page about the movie they have watch. To say how good or bad the movie is. Or other people would read upon or the rating of the movie before the they actually watch the movie.The web has a variety of categories to Action to Sci-fi. And this page is critic free, this all based off of all the fans</p>
+            <p class="red-text">Welcome to Moviez. Moviez is a place where you go to put reviews or a page about the movie you have watched. You can share how good or bad you thought the movie was and then other people can read it. This allows for them to see the rating and read a bit on the movie before watching it. This website has a wide variety of catergories that range from Action to Sci-Fi. This site is major critic free and is all based off the common people and the fans.</p>
         </div>
     </div>
 </div>
@@ -44,7 +45,7 @@ require_once ('header.php');
     <div class="col s12 m5 right">
         <div class="card-panel red">
             <h3 class="white-text">How It Works</h3>
-          <span class="white-text">This is how the moviez works. After you are done with the movie you have watch, you can go make a page of the Moviez then put it a category, than in a rating (G or R) of movie, and how good it is. This is all depending on you how good it is.
+          <span class="white-text">This is how the MovieZ site works. After you are done with the movie you were watching, you can go create a page on the MovieZ site then put it a category, then choose a rating (G to R) of the movie, and how good it was. It is all depending on you how good it is scored.
           </span>
         </div>
     </div>
