@@ -103,6 +103,7 @@ $stmt->execute();
     <div class="nav-wrapper">
         <a href="index.php" class="brand-logo"><img class="brand-logo" src="moviez.png"></a>
         <ul class="right hide-on-med-and-down">
+            
             <?php if (isset($_SESSION['username'])) {
                 echo '<li><a href="logout.php">Log Out (' . $_SESSION['username'] . ')</a></li>';
                 echo '<li><a href="createMoviePage.php">Make A Page</a> </li>';
