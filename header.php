@@ -107,19 +107,7 @@ foreach($dbh->query($query) as $row){
     <div class="nav-wrapper">
         <a href="index.php" class="brand-logo"><img class="brand-logo" src="moviez.png"></a>
         <ul class="right hide-on-med-and-down">
-<<<<<<< HEAD
-            <?php
-                    if (isset($_SESSION['username'])) {
-                        echo '<a href="index.php">Home</a> ';
-                        echo '<a href="createMoviePage.php">Create Page</a>';
-                        echo '<a href="logout.php">Log Out (' . $_SESSION['username'] . ')</a>';
-                    }
-                    else {
-                        echo '<a href="login.php">Log In</a>';
-                        echo '<a href="signup.php">Sign Up</a>';
-                     }
-             ?>
-=======
+            
             <?php if (isset($_SESSION['username'])) {
                 echo '<li><a href="logout.php">Log Out (' . $_SESSION['username'] . ')</a></li>';
                 echo '<li><a href="createMoviePage.php">Make A Page</a> </li>';
@@ -130,7 +118,6 @@ foreach($dbh->query($query) as $row){
                 echo '<li><a href="signup.php">Sign Up</a></li>';
             }
             ?>
->>>>>>> 203b633935ced192bfc7ca62b46e764b84771a1f
             <!-- Dropdown Trigger -->
             <li><a class="dropdown-button" href="#!" data-activates="dropdown1">Categories<i class="material-icons right">arrow_drop_down</i></a></li>
         </ul>
