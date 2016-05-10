@@ -10,7 +10,7 @@
 
 <br>
 <header>
-    <a href="index.html" class="logo">
+    <a href="index.php" class="logo">
         <strong><em>Moviez</em></strong>
     </a>
     <nav>
