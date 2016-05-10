@@ -1,27 +1,48 @@
 <?php
-require_once('appvar.php');
+require_once ('connect.php');
+require_once ('startsession.php');
+
+$stmt = $dbh->prepare("SELECT * FROM movies m LEFT JOIN categories ON m.category = :category");
+$stmt->execute(array(':category'=>$_GET['category']));
+$results = $stmt->fetchAll();
+
 require_once ('header.php');
-$dbh = new PDO('mysql:host=localhost;dbname=MovieZ', 'root', 'root');
+?>
 
-if(isset($_GET['idcategories'])) {
-    $query = "SELECT idmovies, name, picture FROM movies where categories_idcategories = '" . $_GET['idcategories'] . "'";
-    $stmt = $dbh->prepare($query);
-    $stmt->execute();
-    $result = $stmt->fetchAll();
+<div id="searchinfo">
+    <h1><?php echo $_GET['name'];?></h1>
 
+    <table>
+        <thead>
+        <tr>
+            <th>Name</th>
+        </tr>
+        </thead>
+        <tbody>
+        <?php
+        if(count($results) > 0) {
+            foreach($results as $movie){
 
-    echo '<table>';
-    foreach ($result as $row) {
-        if (is_file(MZ_UPLOADPATH . $row['picture']) && filesize(MZ_UPLOADPATH . $row['picture']) > 0) {
-            echo '<tr><td><img src="' . MZ_UPLOADPATH . $row['picture'] . '" alt="' . $row['name'] . '" /></td>';
-        } else {
-            echo '<tr><td><img src="' . MZ_UPLOADPATH . 'images/nopic.jpg' . '" alt="' . $row['name'] . '" /></td>';
+                $moviename = $movie['name'];
+
+                echo '<tr>';
+                echo "<td><a href='movies.php?id=" . $movie['id'] . "'>{$moviename}</a></td>";
+                echo '</tr>';
+            }
         }
-        if (isset($_SESSION['user_id'])) {
-            echo '<td><a href="viewmovie.php?user_id=' . $row['idmovies'] . '">' . $row['name'] . '</a></td></tr>';
-        } else {
-            echo '<td>' . $row['name'] . '</td></tr>';
+        else{
+            echo '<tr>';
+            echo '<td>0 Results Found.</td>';
+            echo '</tr>';
         }
-    }
-    echo '</table>';
-}
+        ?>
+        </tbody>
+    </table>
+    <?php
+
+    ?>
+</div>
+
+<?php
+require_once ('footer.php');
+?>
