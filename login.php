@@ -3,7 +3,8 @@
 <head>
     <link rel="stylesheet" href="signstyle.css">
     <meta charset="UTF-8">
-    <title>Log in for Moviez</title>
+    <title>Moviez-Log In</title>
+    <link rel="icon" type="image/png" href="moviez.png"/>
 </head>
 <body>
 
@@ -54,7 +55,7 @@ if (!isset($_SESSION['idusers'])) {
                 $_SESSION['username'] = $row['username'];
                 setcookie('idusers', $row['idusers'], time() + (60 * 60 * 24 * 30));    // expires in 30 days
                 setcookie('username', $row['username'], time() + (60 * 60 * 24 * 30));  // expires in 30 days
-                $home_url = 'http://' . $_SERVER['HTTP_HOST'] . dirname($_SERVER['PHP_SELF']) . '/index.html';
+                $home_url = 'http://' . $_SERVER['HTTP_HOST'] . dirname($_SERVER['PHP_SELF']) . '/index.php';
                 header('Location: ' . $home_url);
             }
             else {
@@ -81,7 +82,7 @@ if (empty($_SESSION['idusers'])) {
         <div id="signup-tab-content" class="active">
             <form class="signup-form" method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
                      <input type="text" class="input" id="username" name="username" value="<?php if (!empty($user_username)) echo $user_username; ?>" autocomplete="off" placeholder="Username" /><br />
-                     <input type="password" class="input" name="password" id="password" autocomplete="off" placeholder="Email"/>
+                     <input type="password" class="input" name="password" id="password" autocomplete="off" placeholder="Password"/>
                      <input type="submit" class="button" value="Log In" name="submit" />
             </form>
         </div>

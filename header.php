@@ -1,11 +1,12 @@
 <?php
 require_once ('connect.php');
+require_once ('startsession.php');
 
 $query = "SELECT * FROM categories";
 $stmt = $dbh->prepare($query);
 $stmt->execute();
 
-foreach($dbh->query($query) as $row) {
+foreach($dbh->query($query) as $row){
     echo $row['name'];
 }
 ?>
@@ -108,6 +109,7 @@ foreach($dbh->query($query) as $row) {
         <ul class="right hide-on-med-and-down">
             <?php if (isset($_SESSION['username'])) {
                 echo '<li><a href="logout.php">Log Out (' . $_SESSION['username'] . ')</a></li>';
+                echo '<li><a href="createMoviePage.php">Make A Page</a> </li>';
 
             }
             else{
