@@ -16,6 +16,12 @@ require_once ('header.php');
         margin-top: -30em;
         margin-bottom: 15em;
     }
+    #account-user{
+        left: 90em;
+    }
+    #non-account{
+
+    }
 </style>
 
 <body>
@@ -34,7 +40,6 @@ require_once ('header.php');
         </div>
     </div>
 </div>
-
 <div id="howItWorks" class="row">
     <div class="col s12 m5 right">
         <div class="card-panel red">
@@ -44,6 +49,21 @@ require_once ('header.php');
         </div>
     </div>
 </div>
+    <h4 class="center red-text">Who see the page?</h4>
+<div id="account-user">
+    <h5 class="red-text left">account user</h5>
+    <span>
+
+    </span>
+</div>
+<div id="non-account">
+    <h5 class="red-text right">non-accout user</h5>
+</div>
+
+
+
+
+
 
 <?php
 require_once ('footer.php');
