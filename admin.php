@@ -20,6 +20,10 @@
         margin-left: 1.5em;
         margin-top: .1em;
     }
+    #adLabel {
+        left: 4em;
+        margin-top: .5em;
+    }
 </style>
 
 <body>
@@ -31,7 +35,7 @@
 <nav class="red darken-4">
     <div class="nav-wrapper">
         <a href="index.php" class="brand-logo"><img class="brand-logo" src="moviez.png"></a>
-        <h3 class="brand-logo left">- Admin</h3>
+        <h3 id="adLabel" class="brand-logo left">- Admin</h3>
         <ul class="right hide-on-med-and-down">
             <li><a href="login.php">Approve</a></li>
             <li><a href="signup.php">Edit/Delete Pages</a></li>
