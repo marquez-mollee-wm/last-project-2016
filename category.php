@@ -2,7 +2,7 @@
 require_once ('connect.php');
 require_once ('startsession.php');
 
-$stmt = $dbh->prepare("SELECT * FROM movies m LEFT JOIN categories ON m.category = :category");
+$stmt = $dbh->prepare("SELECT * FROM movies m LEFT JOIN categories c ON c.idcategories = :category");
 $stmt->execute(array(':category'=>$_GET['category']));
 $results = $stmt->fetchAll();
 
@@ -10,12 +10,12 @@ require_once ('header.php');
 ?>
 
 <div id="searchinfo">
-    <h1><?php echo $_GET['name'];?></h1>
+    <h1><?php echo $_GET['category'];?></h1>
 
     <table>
         <thead>
         <tr>
-            <th>Name</th>
+            <th>Movies</th>
         </tr>
         </thead>
         <tbody>
@@ -26,7 +26,7 @@ require_once ('header.php');
                 $moviename = $movie['name'];
 
                 echo '<tr>';
-                echo "<td><a href='movies.php?id=" . $movie['id'] . "'>{$moviename}</a></td>";
+                echo "<td><a href='movies.php?id=" . $movie['idmovies'] . "'>{$moviename}</a></td>";
                 echo '</tr>';
             }
         }
