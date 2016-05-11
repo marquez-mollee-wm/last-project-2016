@@ -17,11 +17,17 @@ require_once ('header.php');
         margin-top: -30em;
         margin-bottom: 15em;
     }
-    #account-user{
-        : 0em;
+    #1{
+        width: 90em;
+        text-align: center;
     }
-    #non-account{
-
+    #2{
+        width: 90em;
+        text-align: center;
+    }
+    #3{
+        width: 90em;
+        text-align: center;
     }
 </style>
 
@@ -50,21 +56,7 @@ require_once ('header.php');
         </div>
     </div>
 </div>
-    <h4 class="center red-text">Who see the page?</h4>
-<div id="account-user">
-    <h5 class="red-text left">account user</h5>
-    <span>
-
-    </span>
-</div>
-<div id="non-account">
-    <h5 class="red-text right">non-accout user</h5>
-</div>
-
-
-
-
-
+<h5 class="red-text center">~ Who can see the page? ~</h5>
 
 <?php
 require_once ('footer.php');
