@@ -5,10 +5,6 @@ require_once ('startsession.php');
 $query = "SELECT * FROM categories";
 $stmt = $dbh->prepare($query);
 $stmt->execute();
-
-foreach($dbh->query($query) as $row){
-    echo $row['name'];
-}
 ?>
 
 <!DOCTYPE html>
@@ -94,14 +90,14 @@ foreach($dbh->query($query) as $row){
 
 <!-- Dropdown Structure -->
 <ul id="dropdown1" class="dropdown-content">
-    <li><a href="category.php?categories=Action">Action</a></li>
-    <li><a href="category.php?categories=Anime">Anime</a></li>
-    <li><a href="category.php?categories=Comedy">Comedy</a></li>
-    <li><a href="category.php?categories=Documentary">Documentary</a></li>
-    <li><a href="category.php?categories=Drama">Drama</a></li>
-    <li><a href="category.php?categories=Family">Family</a></li>
-    <li><a href="category.php?categories=Horror">Horror</a></li>
-    <li><a href="category.php?categories=Sci-Fi">Sci-Fi</a></li>
+    <li><a href="category.php?category=Action">Action</a></li>
+    <li><a href="category.php?category=Anime">Anime</a></li>
+    <li><a href="category.php?category=Comedy">Comedy</a></li>
+    <li><a href="category.php?category=Documentary">Documentary</a></li>
+    <li><a href="category.php?category=Drama">Drama</a></li>
+    <li><a href="category.php?category=Family">Family</a></li>
+    <li><a href="category.php?category=Horror">Horror</a></li>
+    <li><a href="category.php?category=Sci-Fi">Sci-Fi</a></li>
 </ul>
 <nav class="red darken-4">
     <div class="nav-wrapper">
