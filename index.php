@@ -45,7 +45,7 @@ require_once ('header.php');
     <div class="col s12 m5 right">
         <div class="card-panel red">
             <h3 class="white-text">How It Works</h3>
-          <span class="white-text">This is how the MovieZ site works: After you are done with the movie you were watching, you can go create a page on the MovieZ site then put it a category, then choose a rating (G to R) of the movie, and how good it was. It is all depending on you how good it is scored.
+          <span class="white-text">This is how the MovieZ site works: After you are done with the movie you were watching, you can go create a page on the MovieZ site then put it a category, then choose a rating (0 to 100) of the movie, and how good it was. It is all depending on you how good it is scored.
           </span>
         </div>
     </div>
@@ -58,7 +58,7 @@ require_once ('header.php');
     </span>
 </div>
 <div id="non-account">
-    <h5 class="red-text right">non-accout user</h5>
+    <h5 class="red-text right">non-account user</h5>
 </div>
 
 
