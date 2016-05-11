@@ -17,18 +17,6 @@ require_once ('header.php');
         margin-top: -30em;
         margin-bottom: 15em;
     }
-    #1{
-        width: 90em;
-        text-align: center;
-    }
-    #2{
-        width: 90em;
-        text-align: center;
-    }
-    #3{
-        width: 90em;
-        text-align: center;
-    }
 </style>
 
 <body>
@@ -51,12 +39,22 @@ require_once ('header.php');
     <div class="col s12 m5 right">
         <div class="card-panel red">
             <h3 class="white-text">How It Works</h3>
-          <span class="white-text">This is how the MovieZ site works. After you are done with the movie you were watching, you can go create a page on the MovieZ site then put it a category, then choose a rating (G to R) of the movie, and how good it was. It is all depending on you how good it is scored.
+          <span class="white-text">This is how the MovieZ site works: After you are done with the movie you were watching, you can go create a page on the MovieZ site then put it a category, then choose a rating (0 to 100) of the movie, and how good it was. It is all depending on you how good it is scored.
           </span>
         </div>
     </div>
 </div>
 <h5 class="red-text center">~ Who can see the page? ~</h5>
+    <h4 class="center red-text">Who see the page?</h4>
+<div id="account-user">
+    <h5 class="red-text left">account user</h5>
+    <span>
+
+    </span>
+</div>
+<div id="non-account">
+    <h5 class="red-text right">non-account user</h5>
+</div>
 
 <?php
 require_once ('footer.php');

@@ -5,7 +5,7 @@ require_once ('startsession.php');
 if (@$_POST['formSubmit']) {
     $errorMessage = false;
 
-    if (empty($_POST['title'])) {
+    if (empty($_POST['name'])) {
         $errorMessage = "<li>Enter the movie title!</li>";
     }
     if (empty($_POST['director'])) {
@@ -23,14 +23,14 @@ if (@$_POST['formSubmit']) {
     }
 
 
-    $stmt = $dbh->prepare("INSERT INTO `MovieZ`.`movies` (`name`, `director`, `release`, `description`, `picture`, `approve`, `rating`, `categories_idcategories`, `users_idusers`) VALUES (:title , :director, :releaseDate, :description, null, '0', :rating, :categoryId, :userId);
+    $stmt = $dbh->prepare("INSERT INTO `MovieZ`.`movies` (`name`, `director`, `release`, `description`, `picture`, `rating`, `approve` ,`categories_idcategories`, `users_idusers`) VALUES (:title , :director, :releaseDate, :description, null, '0', :rating, :categoryId, :userId);
 ");
 
     $result = $stmt->execute(
         array(
-            'title' => $_POST['title'],
+            'name' => $_POST['name'],
             'director' => $_POST['director'],
-            'releaseDate' => $_POST['releaseDate'],
+            'release' => $_POST['release'],
             'description' => $_POST['description'],
             'rating' => $_POST['rating'],
             'categoryId' => $_POST['category'],
@@ -60,7 +60,7 @@ require_once('header.php');
         <form method="post" class="col s12">
             <div class="row">
                 <div class="input-field col s6">
-                    <input id="input_text" type="text" name="title" required>
+                    <input id="input_text" type="text" name="name" required>
                     <label for="input_text">Title</label>
                 </div>
             </div>
