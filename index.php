@@ -35,17 +35,48 @@ require_once ('header.php');
         </div>
     </div>
 </div>
-
 <div id="howItWorks" class="row">
     <div class="col s12 m5 right">
         <div class="card-panel red">
             <h3 class="white-text">How It Works</h3>
-          <span class="white-text">This is how the MovieZ site works. After you are done with the movie you were watching, you can go create a page on the MovieZ site then put it a category, then choose a rating (G to R) of the movie, and how good it was. It is all depending on you how good it is scored.
+          <span class="white-text">This is how the MovieZ site works: After you are done with the movie you were watching, you can go create a page on the MovieZ site then put it a category, then choose a rating (0 to 100) of the movie, and how good it was. It is all depending on you how good it is scored.
           </span>
         </div>
     </div>
 </div>
+<h5 class="red-text center">~ Who can see the page? ~</h5>
+<div id="1" class="red-text left">
+    <table>
+        <tr>
+            <td><h5>Moviez famliy</h5></td>
+        </tr>
+        <tr>
+            <td><p>blarg blarg blarg blarg</p></td>
+        </tr>
+    </table>
+</div>
 
+<div id="2" class="red-text center">
+    <table>
+        <tr>
+            <td><h5>the community</h5></td>
+        </tr>
+        <tr>
+            <td><p>blarg blarg blarg blarg</p></td>
+        </tr>
+    </table>
+</div>
+
+<div id="3" class="red-text left">
+    <table>
+        <tr>
+            <td><h5>the over lookers</h5></td>
+        </tr>
+        <tr>
+            <td><p>blarg blarg blarg blarg</p></td>
+        </tr>
+    </table>
+</div>
 <?php
 require_once ('footer.php');
 ?>
