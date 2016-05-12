@@ -23,8 +23,7 @@ if (@$_POST['formSubmit']) {
     }
 
 
-    $stmt = $dbh->prepare("INSERT INTO `MovieZ`.`movies` (`name`, `director`, `release`, `description`, `picture`, `approve`, `rating`, `categories_idcategories`, `users_idusers`) VALUES (:title , :director, :releaseDate, :description, null, '0', :rating, :categoryId, :userId);
-");
+    $stmt = $dbh->prepare("INSERT INTO `MovieZ`.`movies` (`name`, `director`, `release`, `description`, `picture`, `approve`, `rating`, `categories_idcategories`, `users_idusers`) VALUES (:title , :director, :releaseDate, :description, null, '0', :rating, :categoryId, :userId)");
 
     $result = $stmt->execute(
         array(
@@ -38,8 +37,12 @@ if (@$_POST['formSubmit']) {
         )
 
     );
+
+    if(!$result){
+        print_r($stmt->errorInfo());
+    }
+    header('Location: index.php');
 }
-header('index.php');
 ?>
 
 <?php
@@ -78,31 +81,31 @@ require_once('header.php');
             </div>
             <div class="row">
                 <p>
-                    <input class="with-gap" name="category" type="radio" id="actionCat" />
+                    <input class="with-gap" name="category" type="radio" id="actionCat" value="1"/>
                     <label for="actionCat">Action</label>
 
-                    <input class="with-gap" name="category" type="radio" id="animeCat"  />
+                    <input class="with-gap" name="category" type="radio" id="animeCat"  value="2"/>
                     <label for="animeCat">Anime</label>
                 </p>
                 <p>
-                    <input class="with-gap" name="category" type="radio" id="comedyCat" />
+                    <input class="with-gap" name="category" type="radio" id="comedyCat" value="3"/>
                     <label for="comedyCat">Comedy</label>
 
-                    <input class="with-gap" name="category" type="radio" id="documentaryCat"  />
+                    <input class="with-gap" name="category" type="radio" id="documentaryCat"  value="4"/>
                     <label for="documentaryCat">Documentary</label>
                 </p>
                 <p>
-                    <input class="with-gap" name="category" type="radio" id="dramaCat"  />
+                    <input class="with-gap" name="category" type="radio" id="dramaCat"  value="5"/>
                     <label for="dramaCat">Drama</label>
 
-                    <input class="with-gap" name="category" type="radio" id="familyCat"  />
+                    <input class="with-gap" name="category" type="radio" id="familyCat"  value="6"/>
                     <label for="familyCat">Family</label>
                 </p>
                 <p>
-                    <input class="with-gap" name="category" type="radio" id="horrorCat"  />
+                    <input class="with-gap" name="category" type="radio" id="horrorCat"  value="7"/>
                     <label for="horrorCat">Horror</label>
 
-                    <input class="with-gap" name="category" type="radio" id="sciFiCat"  />
+                    <input class="with-gap" name="category" type="radio" id="sciFiCat"  value="8"/>
                     <label for="sciFiCat">Sci-Fi</label>
                 </p>
             </div>

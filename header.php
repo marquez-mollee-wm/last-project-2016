@@ -90,14 +90,14 @@ $stmt->execute();
 
 <!-- Dropdown Structure -->
 <ul id="dropdown1" class="dropdown-content">
-    <li><a href="category.php?category=Action">Action</a></li>
-    <li><a href="category.php?category=Anime">Anime</a></li>
-    <li><a href="category.php?category=Comedy">Comedy</a></li>
-    <li><a href="category.php?category=Documentary">Documentary</a></li>
-    <li><a href="category.php?category=Drama">Drama</a></li>
-    <li><a href="category.php?category=Family">Family</a></li>
-    <li><a href="category.php?category=Horror">Horror</a></li>
-    <li><a href="category.php?category=Sci-Fi">Sci-Fi</a></li>
+    <li><a href="category.php?category=1">Action</a></li>
+    <li><a href="category.php?category=2">Anime</a></li>
+    <li><a href="category.php?category=3">Comedy</a></li>
+    <li><a href="category.php?category=4">Documentary</a></li>
+    <li><a href="category.php?category=5">Drama</a></li>
+    <li><a href="category.php?category=6">Family</a></li>
+    <li><a href="category.php?category=7">Horror</a></li>
+    <li><a href="category.php?category=8">Sci-Fi</a></li>
 </ul>
 <nav class="red darken-4">
     <div class="nav-wrapper">
