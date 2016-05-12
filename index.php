@@ -1,4 +1,4 @@
-<?php
+<<?php
     require_once('startsession.php');
 ?>
 
@@ -16,6 +16,18 @@ require_once ('header.php');
         right: 20em;
         margin-top: -30em;
         margin-bottom: 15em;
+    }
+    #card1{
+        width: 70em;
+    }
+    #card2{
+        width: 70em;
+        margin-top: -90em;
+        margin-bottom: 15em;
+    }
+    #card3{
+        width: 70em;
+        margin-top: -90em;
     }
 </style>
 
@@ -45,38 +57,38 @@ require_once ('header.php');
     </div>
 </div>
 <h5 class="red-text center">~ Who can see the page? ~</h5>
-<div id="1" class="red-text left">
-    <table>
-        <tr>
-            <td><h5>Moviez famliy</h5></td>
-        </tr>
-        <tr>
-            <td><p>blarg blarg blarg blarg</p></td>
-        </tr>
-    </table>
+
+<div id="card1" class="row">
+    <div class="col s12 m5 center left">
+        <div class="card-panel red">
+            <h5 class="white-text">Moviez famliy</h5>
+            <span class="white-text">
+                blarg blagr blarg blarg blarg
+            </span>
+        </div>
+    </div>
+</div>
+<div id="card2" class="row">
+    <div class="col s12 m5 center center">
+        <div class="card-panel red">
+            <h5 class="white-text">The community</h5>
+            <span class="white-text">
+                blarg blarg blarg blarg blarg blarg blarg
+            </span>
+        </div>
+    </div>
+</div>
+<div id="card3" class="row">
+    <div class="col s12 m5 center right">
+        <div class="card-panel red">
+            <h5 class="white-text">The over looker</h5>
+            <span class="white-text">
+                blarg blarg blarg blarg blarg blarg blarg blarg
+            </span>
+        </div>
+    </div>
 </div>
 
-<div id="2" class="red-text center">
-    <table>
-        <tr>
-            <td><h5>the community</h5></td>
-        </tr>
-        <tr>
-            <td><p>blarg blarg blarg blarg</p></td>
-        </tr>
-    </table>
-</div>
-
-<div id="3" class="red-text left">
-    <table>
-        <tr>
-            <td><h5>the over lookers</h5></td>
-        </tr>
-        <tr>
-            <td><p>blarg blarg blarg blarg</p></td>
-        </tr>
-    </table>
-</div>
 <?php
 require_once ('footer.php');
 ?>
