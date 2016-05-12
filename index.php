@@ -45,17 +45,38 @@ require_once ('header.php');
     </div>
 </div>
 <h5 class="red-text center">~ Who can see the page? ~</h5>
-    <h4 class="center red-text">Who see the page?</h4>
-<div id="account-user">
-    <h5 class="red-text left">account user</h5>
-    <span>
-
-    </span>
+<div id="1" class="red-text left">
+    <table>
+        <tr>
+            <td><h5>Moviez famliy</h5></td>
+        </tr>
+        <tr>
+            <td><p>blarg blarg blarg blarg</p></td>
+        </tr>
+    </table>
 </div>
-<div id="non-account">
-    <h5 class="red-text right">non-account user</h5>
+
+<div id="2" class="red-text center">
+    <table>
+        <tr>
+            <td><h5>the community</h5></td>
+        </tr>
+        <tr>
+            <td><p>blarg blarg blarg blarg</p></td>
+        </tr>
+    </table>
 </div>
 
+<div id="3" class="red-text left">
+    <table>
+        <tr>
+            <td><h5>the over lookers</h5></td>
+        </tr>
+        <tr>
+            <td><p>blarg blarg blarg blarg</p></td>
+        </tr>
+    </table>
+</div>
 <?php
 require_once ('footer.php');
 ?>
