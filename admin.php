@@ -34,11 +34,10 @@
 
 <nav class="red darken-4">
     <div class="nav-wrapper">
-        <a href="index.php" class="brand-logo"><img class="brand-logo" src="moviez.png"></a>
+        <a href="admin.php" class="brand-logo"><img class="brand-logo" src="moviez.png"></a>
         <h3 id="adLabel" class="brand-logo left">- Admin</h3>
         <ul class="right hide-on-med-and-down">
             <li><a href="index.php">Home</a></li>
-            <li><a href="...">idk</a></li>
         </ul>
     </div>
 </nav>
@@ -65,11 +64,17 @@ foreach ($result as $row) {
     echo '<td>' . $row['release'] . '</td>';
     echo '<td>' . $row['description'] . '</td>';
     echo '<td>' . $row['rating'] . '</td>';
-    echo '<td><a href="editmovie.php?idmovies='. $row['idmovies'] .
+    echo '<td><a href="editmovie.php?idmovies='.$row['idmovies'] .
         '&amp;name=' . $row['name'] . '&amp;director=' . $row['director'] .
         '&amp;release=' . $row['release'] . '&amp;description=' . $row['description'] .
         '&amp;rating=' . $row['rating'] .
         '&amp;picture=' . $row['picture'] .'">Edit</a></td>';
+
+    echo '<td><a href="removemovie.php?idmovies='.$row['idmovies'] .
+        '&amp;name=' . $row['name'] . '&amp;director=' . $row['director'] .
+        '&amp;release=' . $row['release'] . '&amp;description=' . $row['description'] .
+        '&amp;rating=' . $row['rating'] .
+        '&amp;picture=' . $row['picture'] .'">Delete</a></td>';
 
     if( $row['approve'] == '0'){
         echo '<td><a href="approvemovie.php?idmovies=' . $row['idmovies'] .
