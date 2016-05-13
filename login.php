@@ -1,30 +1,20 @@
-<!DOCTYPE html>
-<html lang="en">
+<?php
+    require_once('startsession.php')
+?>
+
+<?php
+    require_once('header.php')
+?>
 <head>
     <link rel="stylesheet" href="css/signstyle.css">
-    <meta charset="UTF-8">
-    <title>Moviez-Log In</title>
-    <link rel="icon" type="image/png" href="moviez.png"/>
 </head>
 <body>
-
-<br>
-<header>
-    <a href="index.php" class="logo">
-        <strong><em>Moviez</em></strong>
-    </a>
-    <nav>
-        <ul>
-        </ul>
-    </nav>
-</header>
 <section>
     <h1>Welcome to <em>Moviez</em></h1>
     <p>Log in to make more pages or edit your existing ones</p>
 </section>
 <?php
-// Start the session
-session_start();
+
 // Clear the error message
 $error_msg = "";
 // If the user isn't logged in, try to log them in
@@ -95,5 +85,7 @@ else {
     echo('<p class="login">You are logged in as ' . $_SESSION['username'] . '.</p>');
 }
 ?>
-</body>
-</html>
+
+<?php
+    require_once('footer.php')
+?>

@@ -3,10 +3,10 @@
 $hostname = '127.0.0.1';
 
 /*** mysql username ***/
-$username = 'root';
+$dbusername = 'root';
 
 /*** mysql password ***/
 $password = 'root';
 
-$dbh = new PDO("mysql:host=$hostname;dbname=MovieZ", $username, $password);
+$dbh = new PDO("mysql:host=$hostname;dbname=MovieZ", $dbusername, $password);
 ?>
