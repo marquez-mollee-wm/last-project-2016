@@ -57,11 +57,11 @@ require_once ('header.php');
             foreach($results as $movie){
 
                 $moviename = $movie['name'];
-
                 echo '<tr>';
-                echo "<td><a href='movies.php?id=" . $movie['idmovies'] . "'>{$moviename}</a></td>";
+                echo "<td><a href='movies.php?idmovies=" . $movie['idmovies'] . "'>{$moviename}</a></td>";
                 echo '</tr>';
             }
+
         }
         else{
             echo '<tr>';
