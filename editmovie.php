@@ -2,15 +2,23 @@
 require_once ('appvar.php');
 // Connect to the database
 
-$dbh = new PDO('mysql:host=localhost;dbname=MovieZ', 'root', 'root');
+$dbh = new PDO('mysql:host=127.0.0.1;dbname=MovieZ', 'root', 'root');
 
-$id = (@$_GET['idmovies']) ? $_GET['idmovies'] : $_POST['idmovies'];
-$name= (@$_GET['name']) ? $_GET['name'] : $_POST['name'];
-$director = (@$_GET['director']) ? $_GET['director'] : $_POST['director'];
-$release = (@$_GET['release']) ? $_GET['release'] : $_POST['release'];
-$description = (@$_GET['description']) ? $_GET['description'] : $_POST['description'];
-$rating = (@$_GET['rating']) ? $_GET['rating'] : $_POST['rating'];
-$picture = @$_GET['picture'];
+if (isset($_GET['name']) && isset($_GET['director']) && isset($_GET['release']) && isset($_GET['description']) && isset($_GET['rating'])){
+    $id = @$_GET['idmovies'] ;
+    $name= (@$_GET['name']) ? $_GET['name'] : $_POST['name'];
+    $director = (@$_GET['director']) ? $_GET['director'] : $_POST['director'];
+    $release = (@$_GET['release']) ? $_GET['release'] : $_POST['release'];
+    $description = (@$_GET['description']) ? $_GET['description'] : $_POST['description'];
+    $rating = (@$_GET['rating']) ? $_GET['rating'] : $_POST['rating'];
+    $picture = @$_GET['picture'];
+}
+else if (isset($_POST['id'])){
+    $id = $_POST['id'];
+}
+else{
+    echo '<p class="error">Nothing Selected.</p>';
+}
 
 if (isset($_POST['submit'])) {
     // Grab the profile data from the POST
@@ -24,14 +32,13 @@ if (isset($_POST['submit'])) {
     $new_picture_type = $_FILES['new_picture']['type'];
     $new_picture_size = $_FILES['new_picture']['size'];
     list($new_picture_width, $new_picture_height) = getimagesize($_FILES['new_picture']['tmp_name']);
-    $error = false; 
-
+    $error = false;
     // Validate and move the uploaded picture file, if necessary
     if (!empty($new_picture)) {
         if ((($new_picture_type == 'image/gif') || ($new_picture_type == 'image/jpeg') || ($new_picture_type == 'image/pjpeg') ||
                 ($new_picture_type == 'image/png')) && ($new_picture_size > 0) && ($new_picture_size <= MZ_MAXFILESIZE) &&
             ($new_picture_width <= MZ_MAXIMGWIDTH) && ($new_picture_height <= MZ_MAXIMGHEIGHT)) {
-            if ($_FILES['file']['error'] == 0) {
+            if ($_FILES['new_picture']['error'] == 0) {
                 // Move the file to the target upload folder
                 $target = MZ_UPLOADPATH . basename($new_picture);
                 if (move_uploaded_file($_FILES['new_picture']['tmp_name'], $target)) {
@@ -62,18 +69,20 @@ if (isset($_POST['submit'])) {
         if (!empty($name) && !empty($director) && !empty($release) && !empty($description) && !empty($rating)) {
             // Only set the picture column if there is a new picture
             if (!empty($new_picture)) {
-                    $query = "UPDATE movies SET `name` = `:name`, director = :director, release = :release, description = :description, rating = :rating ";
-                    $stmt = $dbh->prepare($query);
-                    $stmt->execute(array(
+                    $query2 = "UPDATE `movies` SET `name` = :name, `director` = :director, `release` = :release, `description` = :description, `rating` = :rating, `picture` = :picture WHERE idmovies = '" . $id . "'";
+                    $stmt2 = $dbh->prepare($query2);
+                    $stmt2->execute(array(
                         'name' => $name,
                         'director' => $director,
                         'release' => $release,
                         'description' => $description,
-                        'rating' => $rating
+                        'rating' => $rating,
+                        'picture' => $new_picture
                     ));
                 }
             else {
-                $query = "UPDATE movies SET `name` = `:name`, director = :director, release = :release, description = :description, rating = :rating ";
+                echo $rating;
+                $query = "UPDATE `MovieZ`.`movies` SET `name` = :name, `director` = :director, `release` = :release, `description` = :description, `rating` = :rating WHERE idmovies = '" . $id . "'";
                 $stmt = $dbh->prepare($query);
                 $stmt->execute(array(
                     'name' => $name,
@@ -86,7 +95,7 @@ if (isset($_POST['submit'])) {
 
 
             // Confirm success with the user
-            echo '<p>The movie has been successfully updated. Go back to<a href="admin.php">admin page</a></p>';
+            echo '<p>The movie has been successfully updated. Go back to <a href="admin.php">admin page</a></p>';
 
 
             exit();
@@ -96,29 +105,27 @@ if (isset($_POST['submit'])) {
         }
     }
 } // End of check for form submission
+
 else {
-    // Grab the profile data from the database
-    $query = "SELECT `name`, director, release, description, rating, picture FROM movies WHERE idmovies = '" . $_GET['idmovies'] . "'";
-    $stmt = $dbh->prepare($query);
-    $stmt->execute();
-
-    $results =$stmt->fetch();
-    $row = $results[0];
-
-    if ($row != NULL) {
-        $name = $row['name'];
-        $director = $row['director'];
-        $release = $row['release'];
-        $description = $row['description'];
-        $rating = $row['rating'];
-        $old_picture = $row['picture'];
-    }
-
-    else {
-        echo '<p class="error">There was a problem accessing the movie.</p>';
-    }
+//
+//    // Grab the profile data from the database
+//    $query = "SELECT `name`, director, release, description, rating, picture FROM movies WHERE idmovies = '" . $id . "'";
+//    $stmt = $dbh->prepare($query);
+//    $stmt->execute();
+//    $results = $stmt->fetchAll();
+//
+//    foreach ($results as $row) {
+//        $name = $row['name'];
+//        $director = $row['director'];
+//        $release = $row['release'];
+//        $description = $row['description'];
+//        $rating = $row['rating'];
+//        $old_picture = $row['picture'];
+//    }
+//    else {
+//    echo '<p class="error">There was a problem accessing the movie.</p>';
+//    }
 }
-
 
 ?>
 
@@ -128,6 +135,7 @@ else {
         <legend>Movie Information</legend>
         <label for="name">Name:</label>
         <input type="text" name="name" value="<?php if (!empty($name)) echo $name; ?>" /><br />
+        <input type="hidden" name="id" value="<?php echo $id; ?>">
         <label for="lastname">Director:</label>
         <input type="text" id="director" name="director" value="<?php if (!empty($director)) echo $director; ?>" /><br />
         <label for="gender">Release Date:</label>
@@ -143,8 +151,17 @@ else {
             echo '<img class="profile" src="' . MZ_UPLOADPATH . $old_picture . '" alt="Profile Picture" />';
         } ?>
     </fieldset>
-    <input type="submit" value="Save Profile" name="submit" />
+    <input type="submit" value="Save Profile" name="submit" /> <?php
+
+
+
+            //echo '<button><a href="removemovie.php?idmovies=' . $row['idmovies'] .
+            //    '&amp;name=' . $row['name'] . '&amp;director=' . $row['director'] .
+            //    '&amp;release=' . $row['release'] . '&amp;description=' . $row['description'] .
+            //    '&amp;rating=' . $row['rating'] .
+            //    '&amp;picture=' . $row['picture'] . '">Delete</a></button>';
+
+    ?>
 </form>
 
-<?php
 
