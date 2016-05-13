@@ -26,6 +26,10 @@ require_once ('authorize.php');
     .left{
         padding-left: 130px;
     }
+    #adLabel {
+        left: 4em;
+        margin-top: .5em;
+    }
 </style>
 
 <body>
@@ -37,10 +41,9 @@ require_once ('authorize.php');
 <nav class="red darken-4">
     <div class="nav-wrapper">
         <a href="index.php" class="brand-logo"><img class="brand-logo" src="moviez.png"></a>
-        <h3 class="brand-logo left">- Admin</h3>
+        <h3 class="brand-logo left" id="adLabel">- Admin</h3>
         <ul class="right hide-on-med-and-down">
-            <li><a href="approvemovie.php">Approve</a></li>
-            <li><a href="removemovie.php">Edit/Delete Pages</a></li>
+            <li><a href="index.php">Home</a></li>
         </ul>
     </div>
 </nav>
@@ -89,17 +92,17 @@ if (isset($_POST['submit'])) {
 }
 else if (isset($id) && isset($name) && isset($description)) {
 
-    echo '<p>Are you sure you want to approve the following high score?</p>';
+    echo '<p>Are you sure you want to approve the following page?</p>';
     echo '<p><strong>Name: </strong>' . $name . '<br /><strong>Director: </strong>' . $director .
         '<br /><strong>Release: </strong>' . $release .
         '<br /><strong>Description: </strong>' . $description .
-    '<br /><strong>Release Date: </strong>' . $release . '</p>';
+    '<br /><strong>Rating: </strong>' . $rating . '</p>';
     echo '<img src="' . MZ_UPLOADPATH . $pic . '" width="160" alt="Movie Image" /><br />';
 
     echo '<form method="post" action="approvemovie.php">';
-    echo '<input type="radio" name="confirm" value="Yes" id="test1"/>';
+    echo '<input class="with-gap" type="radio" name="confirm" value="Yes" id="test1"/>';
     echo '<label for="test1">Yes</label>';
-    echo '<input type="radio" name="confirm" value="No" checked="checked" id="test2"/>';
+    echo '<input class="with-gap" type="radio" name="confirm" value="No" checked="checked" id="test2"/>';
     echo '<label for="test2">No</label><br />';
     echo '<input type="submit" value="Submit" name="submit" />';
     echo '<input type="hidden" name="id" value="' . $id . '" />';

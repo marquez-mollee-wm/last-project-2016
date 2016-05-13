@@ -34,11 +34,10 @@
 
 <nav class="red darken-4">
     <div class="nav-wrapper">
-        <a href="index.php" class="brand-logo"><img class="brand-logo" src="moviez.png"></a>
+        <a href="admin.php" class="brand-logo"><img class="brand-logo" src="moviez.png"></a>
         <h3 id="adLabel" class="brand-logo left">- Admin</h3>
         <ul class="right hide-on-med-and-down">
             <li><a href="index.php">Home</a></li>
-            <li><a href="...">idk</a></li>
         </ul>
     </div>
 </nav>
