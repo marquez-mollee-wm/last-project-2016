@@ -22,6 +22,10 @@ require_once ('authorize.php');
         margin-left: 1.5em;
         margin-top: .1em;
     }
+
+    .left{
+        padding-left: 130px;
+    }
 </style>
 
 <body>
@@ -44,13 +48,26 @@ require_once ('authorize.php');
 <?php
 require_once('appvars.php');
 
-$id = (@$_GET['idmovies']) ? $_GET['idmovies'] : $_POST['idmovies'];
-$name= (@$_GET['name']) ? $_GET['name'] : $_POST['name'];
-$director = (@$_GET['director']) ? $_GET['director'] : $_POST['director'];
-$release = (@$_GET['release']) ? $_GET['release'] : $_POST['release'];
-$description = (@$_GET['description']) ? $_GET['description'] : $_POST['description'];
-$rating = (@$_GET['rating']) ? $_GET['rating'] : $_POST['rating'];
-$pic = @$_GET['pic'];
+
+$dbh = new PDO('mysql:host=127.0.0.1;dbname=MovieZ', 'root', 'root');
+
+if (isset($_GET['name']) && isset($_GET['director']) && isset($_GET['release']) && isset($_GET['description']) && isset($_GET['rating'])){
+    $id = @$_GET['idmovies'] ;
+    $name = (@$_GET['name']) ? $_GET['name'] : $_POST['name'];
+    $director = (@$_GET['director']) ? $_GET['director'] : $_POST['director'];
+    $release = (@$_GET['release']) ? $_GET['release'] : $_POST['release'];
+    $description = (@$_GET['description']) ? $_GET['description'] : $_POST['description'];
+    $rating = (@$_GET['rating']) ? $_GET['rating'] : $_POST['rating'];
+    $pic = @$_GET['picture'];
+}
+else if (isset($_POST['id'])){
+    $id = $_POST['id'];
+    $name = $_POST['name'];
+}
+else{
+    echo '<p class="error">Nothing Selected.</p>';
+}
+
 
 if (isset($_POST['submit'])) {
     if ($_POST['confirm'] == 'Yes') {
@@ -58,10 +75,10 @@ if (isset($_POST['submit'])) {
         $dbh = new PDO('mysql:host=localhost;dbname=MovieZ', 'root', 'root');
 
         // Approve the score by setting the approved column in the database
-        $query = "UPDATE movies SET approved = 1 WHERE id = $id";
+        $query = "UPDATE movies SET approve = 1 WHERE idmovies = '" . $id . "'";
         $stmt = $dbh ->prepare($query);
         $stmt -> execute();
-        $result = $stmt->fetchAll();
+
 
         // Confirm success with the user
         echo '<p>The  movie ' . $name . '  was successfully approved.';
@@ -71,15 +88,19 @@ if (isset($_POST['submit'])) {
     }
 }
 else if (isset($id) && isset($name) && isset($description)) {
+
     echo '<p>Are you sure you want to approve the following high score?</p>';
     echo '<p><strong>Name: </strong>' . $name . '<br /><strong>Director: </strong>' . $director .
         '<br /><strong>Release: </strong>' . $release .
         '<br /><strong>Description: </strong>' . $description .
     '<br /><strong>Release Date: </strong>' . $release . '</p>';
+    echo '<img src="' . MZ_UPLOADPATH . $pic . '" width="160" alt="Movie Image" /><br />';
+
     echo '<form method="post" action="approvemovie.php">';
-    echo '<img src="' . MZ_UPLOADPATH . $pic . '" width="160" alt="Score image" /><br />';
-    echo '<input type="radio" name="confirm" value="Yes" /> Yes ';
-    echo '<input type="radio" name="confirm" value="No" checked="checked" /> No <br />';
+    echo '<input type="radio" name="confirm" value="Yes" id="test1"/>';
+    echo '<label for="test1">Yes</label>';
+    echo '<input type="radio" name="confirm" value="No" checked="checked" id="test2"/>';
+    echo '<label for="test2">No</label><br />';
     echo '<input type="submit" value="Submit" name="submit" />';
     echo '<input type="hidden" name="id" value="' . $id . '" />';
     echo '<input type="hidden" name="name" value="' . $name . '" />';
