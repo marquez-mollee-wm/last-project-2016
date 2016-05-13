@@ -4,7 +4,7 @@ require_once ('startsession.php');
 $category = "no category";
 
 //$stmt = $dbh->prepare("SELECT * FROM movies m LEFT JOIN categories c ON c.idcategories = :category");
-$stmt = $dbh->prepare("SELECT * FROM movies m WHERE m.categories_idcategories = :category");
+$stmt = $dbh->prepare("SELECT * FROM movies m WHERE m.categories_idcategories = :category AND approve = 1");
 $stmt->execute(array(':category'=>$_GET['category']));
 $results = $stmt->fetchAll();
 
