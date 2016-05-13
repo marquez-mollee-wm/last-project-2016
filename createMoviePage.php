@@ -1,8 +1,10 @@
 <?php
 require_once ('connect.php');
 require_once ('startsession.php');
+require_once ('appvars.php');
 
-if (@$_POST['formSubmit']) {
+if (isset($_POST['formSubmit'])) {
+
     $errorMessage = false;
 
     if (empty($_POST['title'])) {
@@ -14,7 +16,6 @@ if (@$_POST['formSubmit']) {
     if (empty($_POST['releaseDate'])) {
         $errorMessage = "<li>Enter the release date!</li>";
     }
-
     if (empty($_POST['description'])) {
         $errorMessage = "<li>Enter your description!</li>";
     }
@@ -22,24 +23,60 @@ if (@$_POST['formSubmit']) {
         $errorMessage = "<li>Enter your rating!</li>";
     }
 
+    $title = $_POST['title'];
+    $description = $_POST['description'];
 
-    $stmt = $dbh->prepare("INSERT INTO `MovieZ`.`movies` (`name`, `director`, `release`, `description`, `picture`, `approve`, `rating`, `categories_idcategories`, `users_idusers`) VALUES (:title , :director, :releaseDate, :description, null, '0', :rating, :categoryId, :userId);
-");
+    $picture = $_FILES['picture']['name'];
+    $picture_type = $_FILES['picture']['type'];
+    $picture_size = $_FILES['picture']['size'];
+    list($picture_width, $picture_height) = getimagesize($_FILES['picture']['tmp_name']);
+    if (!empty($title) && !empty($description) && !empty($picture)) {
+        if ((($picture_type == 'image/gif') || ($picture_type == 'image/jpeg') || ($picture_type == 'image/pjpeg') || ($picture_type == 'image/png'))
+            && ($picture_size > 0) && ($picture_size <= MZ_MAXFILESIZE)) {
+            if ($_FILES['picture']['error'] == 0) {
+                // Move the file to the target upload folder
+                $target = MZ_UPLOADPATH . $picture;
+                if (move_uploaded_file($_FILES['picture']['tmp_name'], $target)) {
+                    // Connect to the database
+                    require_once ('connect.php');
 
-    $result = $stmt->execute(
-        array(
-            'title' => $_POST['title'],
-            'director' => $_POST['director'],
-            'releaseDate' => $_POST['releaseDate'],
-            'description' => $_POST['description'],
-            'rating' => $_POST['rating'],
-            'categoryId' => $_POST['category'],
-            'userId' => $_SESSION['idusers']
-        )
+                    // Send to the DB
+                    $stmt = $dbh->prepare("INSERT INTO `MovieZ`.`movies` (`name`, `director`, `release`, `description`, `picture`, `approve`, `rating`, `categories_idcategories`, `users_idusers`) VALUES (:title , :director, :releaseDate, :description, :picture, '0', :rating, :categoryId, :userId)");
 
-    );
+                    $result = $stmt->execute(
+                        array(
+                            'title' => $_POST['title'],
+                            'director' => $_POST['director'],
+                            'releaseDate' => $_POST['releaseDate'],
+                            'description' => $_POST['description'],
+                            'picture' => $picture,
+                            'rating' => $_POST['rating'],
+                            'categoryId' => $_POST['category'],
+                            'userId' => $_SESSION['idusers']
+                        )
+                    );
+
+                    if(!$result){
+                        print_r($stmt->errorInfo());
+                    }
+
+                }
+                else {
+                    echo '<p>Sorry, there was a problem uploading your cover image.</p>';
+                }
+            }
+        }
+        else {
+            echo '<p>The cover photo must be a GIF, JPEG, or PNG image file no greater than ' . (MZ_MAXFILESIZE / 1024) . ' KB in size.</p>';
+        }
+
+        // Try to delete the temporary screen shot image file
+        @unlink($_FILES['picture']['tmp_name']);
+    }
+    else {
+        echo '<p>Please enter all of the information to add your page.</p>';
+    }
 }
-header('index.php');
 ?>
 
 <?php
@@ -57,7 +94,7 @@ require_once('header.php');
 <div class="container">
     <h2 class="red-text text-darken-4">Make Your Page!</h2>
     <div id="addPgFm" class="row red-form form-darken-4">
-        <form method="post" class="col s12">
+        <form method="post" enctype="multipart/form-data" class="col s12" action="<?php echo $_SERVER['PHP_SELF']; ?>" >
             <div class="row">
                 <div class="input-field col s6">
                     <input id="input_text" type="text" name="title" required>
@@ -78,31 +115,31 @@ require_once('header.php');
             </div>
             <div class="row">
                 <p>
-                    <input class="with-gap" name="category" type="radio" id="actionCat" />
+                    <input class="with-gap" name="category" type="radio" id="actionCat" value="1"/>
                     <label for="actionCat">Action</label>
 
-                    <input class="with-gap" name="category" type="radio" id="animeCat"  />
+                    <input class="with-gap" name="category" type="radio" id="animeCat"  value="2"/>
                     <label for="animeCat">Anime</label>
                 </p>
                 <p>
-                    <input class="with-gap" name="category" type="radio" id="comedyCat" />
+                    <input class="with-gap" name="category" type="radio" id="comedyCat" value="3"/>
                     <label for="comedyCat">Comedy</label>
 
-                    <input class="with-gap" name="category" type="radio" id="documentaryCat"  />
+                    <input class="with-gap" name="category" type="radio" id="documentaryCat"  value="4"/>
                     <label for="documentaryCat">Documentary</label>
                 </p>
                 <p>
-                    <input class="with-gap" name="category" type="radio" id="dramaCat"  />
+                    <input class="with-gap" name="category" type="radio" id="dramaCat"  value="5"/>
                     <label for="dramaCat">Drama</label>
 
-                    <input class="with-gap" name="category" type="radio" id="familyCat"  />
+                    <input class="with-gap" name="category" type="radio" id="familyCat"  value="6"/>
                     <label for="familyCat">Family</label>
                 </p>
                 <p>
-                    <input class="with-gap" name="category" type="radio" id="horrorCat"  />
+                    <input class="with-gap" name="category" type="radio" id="horrorCat"  value="7"/>
                     <label for="horrorCat">Horror</label>
 
-                    <input class="with-gap" name="category" type="radio" id="sciFiCat"  />
+                    <input class="with-gap" name="category" type="radio" id="sciFiCat"  value="8"/>
                     <label for="sciFiCat">Sci-Fi</label>
                 </p>
             </div>
@@ -116,10 +153,10 @@ require_once('header.php');
                 <div class="file-field input-field">
                     <div class="btn">
                         <span>File</span>
-                        <input type="file">
+                        <input type="file" id="picture" name="picture">
                     </div>
                     <div class="file-path-wrapper">
-                        <input class="file-path validate" type="text" placeholder="Upload a Cover For Your Movie!" >
+                        <input class="file-path validate" type="text" placeholder="Upload a Cover For Your Movie!">
                     </div>
                 </div>
             </div>

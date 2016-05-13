@@ -1,4 +1,4 @@
-<?php
+<<?php
     require_once('startsession.php');
 ?>
 
@@ -16,6 +16,18 @@ require_once ('header.php');
         right: 20em;
         margin-top: -30em;
         margin-bottom: 15em;
+    }
+    #card1{
+        width: 70em;
+    }
+    #card2{
+        width: 70em;
+        margin-top: -90em;
+        margin-bottom: 15em;
+    }
+    #card3{
+        width: 70em;
+        margin-top: -90em;
     }
 </style>
 
@@ -35,13 +47,44 @@ require_once ('header.php');
         </div>
     </div>
 </div>
-
 <div id="howItWorks" class="row">
     <div class="col s12 m5 right">
         <div class="card-panel red">
             <h3 class="white-text">How It Works</h3>
-          <span class="white-text">This is how the MovieZ site works. After you are done with the movie you were watching, you can go create a page on the MovieZ site then put it a category, then choose a rating (G to R) of the movie, and how good it was. It is all depending on you how good it is scored.
+          <span class="white-text">This is how the MovieZ site works: After you are done with the movie you were watching, you can go create a page on the MovieZ site then put it a category, then choose a rating (0 to 100) of the movie, and how good it was. It is all depending on you how good it is scored.
           </span>
+        </div>
+    </div>
+</div>
+<h5 class="red-text center">~ Who can see the page? ~</h5>
+
+<div id="card1" class="row">
+    <div class="col s12 m5 center left">
+        <div class="card-panel red">
+            <h5 class="white-text">Moviez famliy</h5>
+            <span class="white-text">
+                blarg blagr blarg blarg blarg
+            </span>
+        </div>
+    </div>
+</div>
+<div id="card2" class="row">
+    <div class="col s12 m5 center center">
+        <div class="card-panel red">
+            <h5 class="white-text">The community</h5>
+            <span class="white-text">
+                blarg blarg blarg blarg blarg blarg blarg
+            </span>
+        </div>
+    </div>
+</div>
+<div id="card3" class="row">
+    <div class="col s12 m5 center right">
+        <div class="card-panel red">
+            <h5 class="white-text">The over looker</h5>
+            <span class="white-text">
+                blarg blarg blarg blarg blarg blarg blarg blarg
+            </span>
         </div>
     </div>
 </div>
