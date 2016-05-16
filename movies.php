@@ -1,26 +1,21 @@
 <?php
-// Start the session
-require_once('startsession.php');
-
 require_once('appvars.php');
 require_once('header.php');
-
-// Connect to the database
-$dbh = new PDO('mysql:host=localhost;dbname=MovieZ', 'root', 'root' );
+require_once('startsession.php');
 
 $id = $_GET['idmovies'];
-// Grab the profile data from the database
-if (!isset($_GET['idmovies'])) {
-    $query = "SELECT `name`, director, `release`, description, picture, rating FROM movies WHERE idmovies = '" . $id . "'";
-}
+
+$query = "SELECT * FROM movies WHERE idmovies ='" . $id . "'";
+
 $stmt = $dbh->prepare($query);
 $stmt->execute();
 
 $results = $stmt->fetchAll();
 
-if (count($results) == 1) {
+
+foreach($results as $row) {
     // The user row was found so display the user data
-    $row = $results[0];
+
     echo '<table>';
     if (!empty($row['name'])) {
         echo '<tr><td class="label">Name:</td><td>' . $row['name'] . '</td></tr>';
@@ -43,10 +38,13 @@ if (count($results) == 1) {
     }
     echo '</table>';
 } // End of check for a single row of user results
-else {
-    echo '<p class="error">There was a problem accessing the page.</p>';
-}
+//else {
+//    echo '<p class="error">There was a problem accessing the page.</p>';
+//}
 ?>
+
+
+
 
 <?php
 // Insert the page footer

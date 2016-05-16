@@ -53,9 +53,9 @@ require_once ('header.php');
 <div id="card1" class="row">
     <div class="col s12 m5 left">
         <div class="card-panel red">
-            <h5 class="white-text">Moivez family / The Community</h5>
+            <h5 class="white-text">The Community</h5>
         <span class="white-text">
-            the person that have account of this site. They can leave a review of the page they have read the page. The community can just read the page and the other reviews. But the community only have a limited of pages they can read (maybe).
+            The people that use this site can see all of the pages. There is no restriction of what people can view unless the page is still going through the approving phase with the admins.
         </span>
         </div>
     </div>
@@ -63,9 +63,9 @@ require_once ('header.php');
 <div id="card2" class="row">
     <div class="col s12 m5 right">
         <div class="card-panel red">
-            <h5 class="white-text">The Overlooks</h5>
+            <h5 class="white-text">The Admins</h5>
             <span class="white-text">
-                we the overseer can delete your page if there are Inappropriate this thing in the page like. We can take the page down.
+                The admins have to read each page can delete your page if there is inappropriate content on the page. The admins can also delete it or edit it at any time they see fit.
             </span>
         </div>
     </div>

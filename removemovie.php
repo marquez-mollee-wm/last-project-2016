@@ -21,24 +21,29 @@ require_once('authorize.php');
         margin-left: 1.5em;
         margin-top: .1em;
     }
+    #adLabel {
+        left: 4em;
+        margin-top: .5em;
+    }
 </style>
 
 <body>
 <!-- Javascript Stuff -->
 <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
 <script type="text/javascript" src="js/materialize.min.js"></script>
-<script type="text/javascript" src="js/scripts.js"></script>
+<script type="text/javascript" src="scripts.js"></script>
 
 <nav class="red darken-4">
     <div class="nav-wrapper">
-        <a href="index.php" class="brand-logo"><img class="brand-logo" src="moviez.png"></a>
-        <h3 class="brand-logo left">- Admin</h3>
+        <a href="admin.php" class="brand-logo"><img class="brand-logo" src="moviez.png"></a>
+        <h3 id="adLabel" class="brand-logo left">- Admin</h3>
         <ul class="right hide-on-med-and-down">
-            <li><a href="approvemovie.php">Approve</a></li>
-            <li><a href="removemovie.php">Edit/Delete Pages</a></li>
+            <li><a href="index.php">Home</a></li>
         </ul>
     </div>
 </nav>
+
+<div class="container">
 
 <?php
 require_once('appvars.php');
@@ -85,16 +90,16 @@ if (isset($_POST['submit'])) {
 else if (isset($id) && isset($name) && isset($description)){
 
 
-    echo '<p>Are you sure you want to remove the following high score?</p>';
+    echo '<h5>Are you sure you want to remove the following movie page?</h5>';
     echo '<p><strong>Name: </strong>' . $name . '<br /><strong>Director: </strong>' . $director .
         '<br /><strong>Release Date: </strong>' . $release .
         '<br /><strong>Description: </strong>' . $description .
         '<br /><strong>Rating: </strong>' . $rating . '</p>';
     echo '<form method="post" action="removemovie.php">';
     echo '<img src="' . MZ_UPLOADPATH . $pic . '" width="160" alt="Movie Image" /><br />';
-    echo '<input type="radio" name="confirm" value="Yes" id="test1"/>';
+    echo '<input class="with-gap" type="radio" name="confirm" value="Yes" id="test1"/>';
     echo '<label for="test1">Yes</label>';
-    echo '<input type="radio" name="confirm" value="No"checked="checked" id="test2"/>';
+    echo '<input class="with-gap" type="radio" name="confirm" value="No"checked="checked" id="test2"/>';
     echo '<label for="test2">No</label><br >';
     echo '<input type="submit" value="Submit" name="submit" />';
     echo '<input type="hidden" name="id" value="' . $id . '" />';
@@ -105,5 +110,7 @@ else if (isset($id) && isset($name) && isset($description)){
 
 echo '<p><a href="admin.php">&lt;&lt; Back to admin page</a></p>';
 ?>
+
+</div>
 ​
 </body>

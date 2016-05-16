@@ -58,15 +58,12 @@ $result= $stmt->fetchAll();
 echo '<table>';
 foreach ($result as $row) {
     // Display the score data
-    echo '<tr><td>' . $row['picture'] . '</td>';
     echo '<td><strong>' . $row['name'] . '</strong></td>';
     echo '<td>' . $row['director'] . '</td>';
     echo '<td>' . $row['release'] . '</td>';
-    echo '<td>' . $row['description'] . '</td>';
     echo '<td>' . $row['rating'] . '</td>';
     echo '<td><a href="editmovie.php?idmovies='.$row['idmovies'] .
         '&amp;name=' . $row['name'] . '&amp;director=' . $row['director'] .
-        '&amp;release=' . $row['release'] . '&amp;description=' . $row['description'] .
         '&amp;rating=' . $row['rating'] .
         '&amp;picture=' . $row['picture'] .'">Edit</a></td>';
 
