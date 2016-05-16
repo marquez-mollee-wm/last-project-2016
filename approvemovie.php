@@ -93,7 +93,7 @@ else if (isset($id) && isset($name) && isset($description)) {
     echo '<p><strong>Name: </strong>' . $name . '<br /><strong>Director: </strong>' . $director .
         '<br /><strong>Release: </strong>' . $release .
         '<br /><strong>Description: </strong>' . $description .
-    '<br /><strong>Release Date: </strong>' . $release . '</p>';
+    '<br /><strong>Rating: </strong>' . $rating . '</p>';
     echo '<img src="' . MZ_UPLOADPATH . $pic . '" width="160" alt="Movie Image" /><br />';
 
     echo '<form method="post" action="approvemovie.php">';
