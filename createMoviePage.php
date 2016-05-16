@@ -60,6 +60,8 @@ if (isset($_POST['formSubmit'])) {
                         print_r($stmt->errorInfo());
                     }
 
+                    header('Location: index.php');
+
                 }
                 else {
                     echo '<p>Sorry, there was a problem uploading your cover image.</p>';
