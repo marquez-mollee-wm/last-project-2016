@@ -8,9 +8,10 @@ require_once('header.php');
 // Connect to the database
 $dbh = new PDO('mysql:host=localhost;dbname=MovieZ', 'root', 'root' );
 
+$id = $_GET['idmovies'];
 // Grab the profile data from the database
 if (!isset($_GET['idmovies'])) {
-    $query = "SELECT `name`, director, `release`, description, picture, rating FROM movies WHERE idmovies = '" . $_SESSION['idmovies'] . "'";
+    $query = "SELECT `name`, director, `release`, description, picture, rating FROM movies WHERE idmovies = '" . $id . "'";
 }
 $stmt = $dbh->prepare($query);
 $stmt->execute();
