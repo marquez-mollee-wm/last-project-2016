@@ -17,17 +17,10 @@ require_once ('header.php');
         margin-top: -30em;
         margin-bottom: 15em;
     }
-    #card1{
-        width: 70em;
-    }
     #card2{
-        width: 70em;
-        margin-top: -90em;
-        margin-bottom: 15em;
-    }
-    #card3{
-        width: 70em;
-        margin-top: -90em;
+        left: 20em;
+        margin-top: -50em;
+        margin-bottom: 5em;
     }
 </style>
 
@@ -57,38 +50,26 @@ require_once ('header.php');
     </div>
 </div>
 <h5 class="red-text center">~ Who can see the page? ~</h5>
-
 <div id="card1" class="row">
-    <div class="col s12 m5 center left">
+    <div class="col s12 m5 left">
         <div class="card-panel red">
-            <h5 class="white-text">Moviez famliy</h5>
-            <span class="white-text">
-                blarg blagr blarg blarg blarg
-            </span>
+            <h5 class="white-text">Moivez family / The Community</h5>
+        <span class="white-text">
+            the person that have account of this site. They can leave a review of the page they have read the page. The community can just read the page and the other reviews. But the community only have a limited of pages they can read (maybe).
+        </span>
         </div>
     </div>
 </div>
 <div id="card2" class="row">
-    <div class="col s12 m5 center center">
+    <div class="col s12 m5 right">
         <div class="card-panel red">
-            <h5 class="white-text">The community</h5>
+            <h5 class="white-text">The Overlooks</h5>
             <span class="white-text">
-                blarg blarg blarg blarg blarg blarg blarg
+                we the overseer can delete your page if there are Inappropriate this thing in the page like. We can take the page down.
             </span>
         </div>
     </div>
 </div>
-<div id="card3" class="row">
-    <div class="col s12 m5 center right">
-        <div class="card-panel red">
-            <h5 class="white-text">The over looker</h5>
-            <span class="white-text">
-                blarg blarg blarg blarg blarg blarg blarg blarg
-            </span>
-        </div>
-    </div>
-</div>
-
 <?php
 require_once ('footer.php');
 ?>
