@@ -1,22 +1,10 @@
-<html>
+<?php
+    require_once('header.php')
+?>
 <head>
-<<<<<<< HEAD
-    <title>Signup for Moviez</title>
     <link rel="stylesheet" href="css/signstyle.css">
-=======
-    <title>Signup for MovieZ</title>
-    <link rel="stylesheet" href="signstyle.css">
->>>>>>> master
 </head>
 <body>
-<body>
-
-<header>
-    </br>
-    <a href="index.php" class="logo">
-        <em><strong>MovieZ</strong></em>
-    </a>
-</header>
 <section>
     <h1>Welcome to <em>Moviez</em></h1>
     <p>Make an account to be able to make a page.</p>
@@ -84,6 +72,9 @@ if (isset($_POST['submit'])) {
         </div>
     </div>
 </div>
+<?php
+    require_once('footer.php')
+?>
 </body>
-</html>
+
 
