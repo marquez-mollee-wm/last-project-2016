@@ -111,8 +111,8 @@ require_once('header.php');
             </div>
             <div class="row">
                 <div class="input-field col s3">
-                    <input id="releaseDt" name="releaseDate" type="text" maxlength="4" required>
-                    <label for="releaseDt">Release Year</label>
+
+                    <input id="releaseDt" name="releaseDate" type="date" class="datepicker" required>
                 </div>
             </div>
             <div class="row">
@@ -147,7 +147,7 @@ require_once('header.php');
             </div>
             <div class="row">
                 <div class="input-field col s11">
-                    <textarea id="textarea1" name="description" class="materialize-textarea" required></textarea>
+                    <textarea id="textarea1" name="description" class="materialize-textarea" length="200" required></textarea>
                     <label for="sciFiCat">Description</label>
                 </div>
             </div>

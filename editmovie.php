@@ -1,4 +1,5 @@
 <?php
+require_once ('authorize.php');
 require_once ('appvar.php');
 // Connect to the database
 
