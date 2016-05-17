@@ -186,11 +186,7 @@ else {
         <label for="gender">Release Date:</label>
         <input type="date" id="release" name="release" value="<?php if (!empty($release)) echo $_GET['release']; ?>"><br/>
         <label for="description">Description:</label>
-<<<<<<< HEAD
-        <input type="text" id="description" length="800" name="description" value="<?php if (!empty($description)) echo $description; ?>" /><br />
-=======
-        <input type="text" id="description" length="400" name="description" value="<?php if (!empty($description)) echo $_GET['description']; ?>" /><br />
->>>>>>> ca77d5c649a306d246cedde31be1edce47a0e48a
+        <input type="text" id="description" length="800" name="description" value="<?php if (!empty($description)) echo $_GET['description']; ?>" /><br />
         <label for="city">Rating:</label>
         <input type="text" id="city" name="rating" value="<?php if (!empty($rating)) echo $_GET['rating']; ?>" /><br />
         <input type="hidden" name="old_picture" value="<?php if (!empty($old_picture)) echo $_GET['picture']; ?>" />
