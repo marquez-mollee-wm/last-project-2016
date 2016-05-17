@@ -48,6 +48,7 @@ require_once ('appvar.php');
 
 $dbh = new PDO('mysql:host=127.0.0.1;dbname=MovieZ', 'root', 'root');
 
+
 if (isset($_GET['name']) && isset($_GET['director']) && isset($_GET['release']) && isset($_GET['description']) && isset($_GET['rating'])){
     $id = @$_GET['idmovies'] ;
     $name= (@$_GET['name']) ? $_GET['name'] : $_POST['name'];
@@ -178,17 +179,21 @@ else {
     <fieldset>
         <legend>Movie Information</legend>
         <label for="name">Name:</label>
-        <input type="text" name="name" value="<?php if (!empty($name)) echo $name; ?>" /><br />
+        <input type="text" name="name" value="<?php if (!empty($name)) echo $_GET['name']; ?>" /><br />
         <input type="hidden" name="id" value="<?php echo $id; ?>">
         <label for="lastname">Director:</label>
-        <input type="text" id="director" name="director" value="<?php if (!empty($director)) echo $director; ?>" /><br />
+        <input type="text" id="director" name="director" value="<?php if (!empty($director)) echo $_GET['director']; ?>" /><br />
         <label for="gender">Release Date:</label>
-        <input type="date" id="release" name="release" value="<?php if (!empty($release)) echo $release; ?>"><br/>
+        <input type="date" id="release" name="release" value="<?php if (!empty($release)) echo $_GET['release']; ?>"><br/>
         <label for="description">Description:</label>
+<<<<<<< HEAD
         <input type="text" id="description" length="800" name="description" value="<?php if (!empty($description)) echo $description; ?>" /><br />
+=======
+        <input type="text" id="description" length="400" name="description" value="<?php if (!empty($description)) echo $_GET['description']; ?>" /><br />
+>>>>>>> ca77d5c649a306d246cedde31be1edce47a0e48a
         <label for="city">Rating:</label>
-        <input type="text" id="city" name="rating" value="<?php if (!empty($rating)) echo $rating; ?>" /><br />
-        <input type="hidden" name="old_picture" value="<?php if (!empty($old_picture)) echo $old_picture; ?>" />
+        <input type="text" id="city" name="rating" value="<?php if (!empty($rating)) echo $_GET['rating']; ?>" /><br />
+        <input type="hidden" name="old_picture" value="<?php if (!empty($old_picture)) echo $_GET['picture']; ?>" />
         <label for="new_picture">Picture:</label>
         <input type="file" id="new_picture" name="new_picture" />
         <?php if (!empty($old_picture)) {
