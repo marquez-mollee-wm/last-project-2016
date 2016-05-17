@@ -76,7 +76,6 @@ if (isset($_POST['submit'])) {
     $new_picture =  $_FILES['new_picture']['name'];
     $new_picture_type = $_FILES['new_picture']['type'];
     $new_picture_size = $_FILES['new_picture']['size'];
-    list($new_picture_width, $new_picture_height) = getimagesize($_FILES['new_picture']['tmp_name']);
     $error = false;
     // Validate and move the uploaded picture file, if necessary
     if (!empty($new_picture)) {
@@ -126,7 +125,7 @@ if (isset($_POST['submit'])) {
                     ));
                 }
             else {
-                echo $rating;
+                
                 $query = "UPDATE `MovieZ`.`movies` SET `name` = :name, `director` = :director, `release` = :release, `description` = :description, `rating` = :rating WHERE idmovies = '" . $id . "'";
                 $stmt = $dbh->prepare($query);
                 $stmt->execute(array(
