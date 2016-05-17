@@ -40,13 +40,17 @@ require_once ('authorize.php');
 
 <nav class="red darken-4">
     <div class="nav-wrapper">
-        <a href="index.php" class="brand-logo"><img class="brand-logo" src="moviez.png"></a>
+        <a href="admin.php" class="brand-logo"><img class="brand-logo" src="moviez.png"></a>
         <h3 class="brand-logo left" id="adLabel">- Admin</h3>
         <ul class="right hide-on-med-and-down">
             <li><a href="index.php">Home</a></li>
         </ul>
     </div>
 </nav>
+
+<div class="container">
+
+<h3>Approve Page</h3>
 ​
 <?php
 require_once('appvars.php');
@@ -104,19 +108,20 @@ else if (isset($id) && isset($name) && isset($description)) {
     echo '<label for="test1">Yes</label>';
     echo '<input class="with-gap" type="radio" name="confirm" value="No" checked="checked" id="test2"/>';
     echo '<label for="test2">No</label><br />';
-    echo '<input type="submit" value="Submit" name="submit" />';
+    echo '<input type="submit" value="Submit" name="submit">';
     echo '<input type="hidden" name="id" value="' . $id . '" />';
     echo '<input type="hidden" name="name" value="' . $name . '" />';
     echo '<input type="hidden" name="description" value="' . $description . '" />';
     echo '</form>';
+    echo '<br>';
 }
 
-echo '<button class="btn waves-effect waves-light" type="submit" name="action">Back to Admin';
-echo '<i class="material-icons right">send</i>';
-echo '</button>';
-
-echo '<p><a href="admin.php">&lt;&lt; Back to admin page</a></p>';
+echo '<a href="admin.php" <button class="btn waves-effect waves-light" type="submit" name="action">Back to Admin';
+echo '<i class="material-icons right">perm_identity</i>';
+echo '</button> </a>';
 ?>
+
+</div>
 ​
 </body>
 </html>

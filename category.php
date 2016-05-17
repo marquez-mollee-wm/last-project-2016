@@ -42,6 +42,8 @@ require_once ('header.php');
     }
 </style>
 
+<div class="container">
+
 <div id="searchinfo">
     <h1><?php echo $category;?></h1>
 
@@ -74,6 +76,8 @@ require_once ('header.php');
     <?php
 
     ?>
+</div>
+
 </div>
 
 <footer class="page-footer red darken-2">

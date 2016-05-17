@@ -23,7 +23,7 @@
         margin-top: .5em;
     }
     #editTable {
-        margin-top: 5em;
+        margin-top: 4em;
     }
 </style>
 
@@ -44,6 +44,8 @@
 </nav>
 
 <div class="container">
+
+    <h3>Edit Movie</h3>
 <?php
 require_once ('authorize.php');
 require_once ('appvar.php');

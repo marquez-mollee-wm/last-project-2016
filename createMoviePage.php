@@ -29,7 +29,6 @@ if (isset($_POST['formSubmit'])) {
     $picture = $_FILES['picture']['name'];
     $picture_type = $_FILES['picture']['type'];
     $picture_size = $_FILES['picture']['size'];
-    list($picture_width, $picture_height) = getimagesize($_FILES['picture']['tmp_name']);
     if (!empty($title) && !empty($description) && !empty($picture)) {
         if ((($picture_type == 'image/gif') || ($picture_type == 'image/jpeg') || ($picture_type == 'image/pjpeg') || ($picture_type == 'image/png'))
             && ($picture_size > 0) && ($picture_size <= MZ_MAXFILESIZE)) {

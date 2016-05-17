@@ -45,6 +45,8 @@ require_once('authorize.php');
 
 <div class="container">
 
+    <h3>Delete Page</h3>
+
 <?php
 require_once('appvars.php');
 
