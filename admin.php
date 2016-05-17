@@ -24,6 +24,9 @@
         left: 4em;
         margin-top: .5em;
     }
+    #adminTable {
+        margin-top: 3em;
+    }
 </style>
 
 <body>
@@ -55,7 +58,10 @@ $stmt= $dbh->prepare($query);
 $stmt->execute();
 $result= $stmt->fetchAll();
 // Loop through the array of score data, formatting it as HTML
-echo '<table>';
+echo '<table id="adminTable" class="striped">';
+
+echo '<thead> <tr> <th>Title:</th> <th>Director:</th> <th>Release Date:</th> <th>Rating:</th> </tr> </thead>';
+
 foreach ($result as $row) {
     // Display the score data
     echo '<td><strong>' . $row['name'] . '</strong></td>';

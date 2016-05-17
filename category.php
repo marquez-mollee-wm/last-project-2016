@@ -1,7 +1,7 @@
 <?php
 require_once ('connect.php');
 require_once ('startsession.php');
-$category = "no category";
+$category = "No Category";
 
 //$stmt = $dbh->prepare("SELECT * FROM movies m LEFT JOIN categories c ON c.idcategories = :category");
 $stmt = $dbh->prepare("SELECT * FROM movies m WHERE m.categories_idcategories = :category AND approve = 1");
