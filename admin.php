@@ -63,6 +63,8 @@ echo '<table id="adminTable" class="striped">';
 echo '<thead> <tr> <th>Title:</th> <th>Director:</th> <th>Release Date:</th> <th>Rating:</th> </tr> </thead>';
 
 foreach ($result as $row) {
+
+    echo '<tr>';
     // Display the score data
     echo '<td><strong>' . $row['name'] . '</strong></td>';
     echo '<td>' . $row['director'] . '</td>';
@@ -87,6 +89,9 @@ foreach ($result as $row) {
             '&amp;rating=' . $row['rating'] .
             '&amp;picture=' . $row['picture'] . '">Approve</a></td></tr>';
     }
+
+    echo '<tr>';
+
 }
 
 echo '</table>';
