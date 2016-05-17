@@ -147,7 +147,7 @@ require_once('header.php');
             </div>
             <div class="row">
                 <div class="input-field col s11">
-                    <textarea id="textarea1" name="description" class="materialize-textarea" length="200" required></textarea>
+                    <textarea id="textarea1" name="description" class="materialize-textarea" length="800" required></textarea>
                     <label for="sciFiCat">Description</label>
                 </div>
             </div>
