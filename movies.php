@@ -34,7 +34,7 @@ foreach($results as $row) {
     }
     if (!empty($row['picture'])) {
         echo '<tr><td class="label">Picture:</td><td><img src="' . MZ_UPLOADPATH . $row['picture'] .
-            '" alt="picture /></td></tr>';
+            '" alt="picture" /></td></tr>';
     }
     echo '</table>';
 } // End of check for a single row of user results
