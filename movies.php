@@ -11,6 +11,7 @@ $stmt = $dbh->prepare($query);
 $stmt->execute();
 
 $results = $stmt->fetchAll();
+
 ?>
 
 <style>
@@ -25,10 +26,15 @@ $results = $stmt->fetchAll();
         border-width: .3em;
         border-color: #d32f2f;
     }
+    #rateDivide {
+        width: 15em;
+    }
+    #moviePageFoot {
+        margin-top: 5em;
+    }
 </style>
 
 <div class="container">
-
 
 <?php
 foreach($results as $row) {
@@ -49,16 +55,31 @@ foreach($results as $row) {
     echo '<table>';
 
     if (!empty($row['director'])) {
-        echo '<tr><td class="label">Director:</td><td>' . $row['director'] . '</td></tr>';
+        echo '<tr><h4>Director:</h4></tr>';
+        echo '<tr><li class="divider"></li></tr>';
+        echo '<tr><td>' . $row['director'] . '</td></tr>';
+        echo '</table>';
     }
     if (!empty($row['release'])) {
-        echo '<tr><td class="label">Release</td><td>' . $row['release'] . '</td></tr>';
-    }
-    if (!empty($row['description'])) {
-        echo '<tr><td class="label">Description</td><td>' . $row['description'] . '</td></tr>';
+        echo '<table>';
+        echo '<tr><h4>Release:</h4></tr>';
+        echo '<tr><li class="divider"></li></tr>';
+        echo '<tr><td>' . $row['release'] . '</td></tr>';
+        echo '</table>';
     }
     if (!empty($row['rating'])) {
-        echo '<tr><td class="label">Rating:</td><td>' . $row['rating'] . '</td></tr>';
+        echo '<table>';
+        echo '<tr><h4>Rating:</h4></tr>';
+        echo '<tr><li id="rateDivide" class="divider"></li></tr>';
+        echo '<tr><td>' . $row['rating'] . '%</td></tr>';
+        echo '</table>';
+    }
+    if (!empty($row['description'])) {
+        echo '<table>';
+        echo '<tr><h4>Description:</h4></tr>';
+        echo '<tr><li class="divider"></li></tr>';
+        echo '<tr><td >' . $row['description'] . '</td></tr>';
+        echo '</table>';
     }
     echo '</table>';
 } // End of check for a single row of user results
@@ -68,7 +89,7 @@ foreach($results as $row) {
 ?>
 </div>
 
-<footer class="page-footer red darken-2">
+<footer id="moviePageFoot" class="page-footer red darken-2">
     <div class="container">
         <div class="row">
             <div class="col l6 s12">
