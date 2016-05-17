@@ -22,6 +22,9 @@
         left: 4em;
         margin-top: .5em;
     }
+    #editTable {
+        margin-top: 5em;
+    }
 </style>
 
 <body>
@@ -174,7 +177,7 @@ else {
 
 ?>
 
-<form enctype="multipart/form-data" method="post" action="<?php  echo $_SERVER['PHP_SELF']?>">
+<form id="editTable" enctype="multipart/form-data" method="post" action="<?php  echo $_SERVER['PHP_SELF']?>">
     <input type="hidden" name="MAX_FILE_SIZE" value="<?php echo MZ_MAXFILESIZE; ?>" />
     <fieldset>
         <legend>Movie Information</legend>
