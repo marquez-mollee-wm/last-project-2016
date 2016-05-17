@@ -111,6 +111,10 @@ else if (isset($id) && isset($name) && isset($description)) {
     echo '</form>';
 }
 
+echo '<button class="btn waves-effect waves-light" type="submit" name="action">Back to Admin';
+echo '<i class="material-icons right">send</i>';
+echo '</button>';
+
 echo '<p><a href="admin.php">&lt;&lt; Back to admin page</a></p>';
 ?>
 ​

@@ -22,6 +22,9 @@
         left: 4em;
         margin-top: .5em;
     }
+    #editTable {
+        margin-top: 5em;
+    }
 </style>
 
 <body>
@@ -173,7 +176,7 @@ else {
 
 ?>
 
-<form enctype="multipart/form-data" method="post" action="<?php  echo $_SERVER['PHP_SELF']?>">
+<form id="editTable" enctype="multipart/form-data" method="post" action="<?php  echo $_SERVER['PHP_SELF']?>">
     <input type="hidden" name="MAX_FILE_SIZE" value="<?php echo MZ_MAXFILESIZE; ?>" />
     <fieldset>
         <legend>Movie Information</legend>
@@ -185,7 +188,7 @@ else {
         <label for="gender">Release Date:</label>
         <input type="date" id="release" name="release" value="<?php if (!empty($release)) echo $_GET['release']; ?>"><br/>
         <label for="description">Description:</label>
-        <input type="text" id="description" length="400" name="description" value="<?php if (!empty($description)) echo $_GET['description']; ?>" /><br />
+        <input type="text" id="description" length="800" name="description" value="<?php if (!empty($description)) echo $_GET['description']; ?>" /><br />
         <label for="city">Rating:</label>
         <input type="text" id="city" name="rating" value="<?php if (!empty($rating)) echo $_GET['rating']; ?>" /><br />
         <input type="hidden" name="old_picture" value="<?php if (!empty($old_picture)) echo $_GET['picture']; ?>" />
