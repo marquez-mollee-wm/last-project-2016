@@ -1,5 +1,7 @@
 <style>
-
+    .footBtn {
+        color: white;
+    }
 </style>
 
 <footer class="page-footer red darken-2">
@@ -13,8 +15,16 @@
                 <h5 class="white-text">Links</h5>
                 <ul>
                     <li><a class="grey-text text-lighten-3" href="index.php">Home</a></li>
-                    <li><a class="grey-text text-lighten-3" href="signup.php">Sign Up</a></li>
-                    <li><a class="grey-text text-lighten-3" href="login.php">Login</a></li>
+                    <?php if (isset($_SESSION['username'])) {
+                        echo '<li><a class="footBtn" href="logout.php">Log Out (' . $_SESSION['username'] . ')</a></li>';
+                        echo '<li><a class="footBtn" href="createMoviePage.php">Make A Page</a> </li>';
+
+                    }
+                    else{
+                        echo '<li><a class="footBtn" href="login.php">Login</a></li>';
+                        echo '<li><a class="footBtn" href="signup.php">Sign Up</a></li>';
+                    }
+                    ?>
                 </ul>
             </div>
         </div>

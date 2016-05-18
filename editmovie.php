@@ -25,6 +25,9 @@
     #editTable {
         margin-top: 4em;
     }
+    #backToAdBtn {
+        margin-bottom: 4em;
+    }
 </style>
 
 <body>
@@ -200,7 +203,7 @@ else {
             echo '<img class="profile" src="' . MZ_UPLOADPATH . $old_picture . '" alt="Profile Picture" />';
         } ?>
     </fieldset>
-    <input type="submit" value="Save Profile" name="submit" /> <?php
+    <input type="submit" value="Save Edit" name="submit" /> <?php
 
 
 
@@ -209,7 +212,11 @@ else {
             //    '&amp;release=' . $row['release'] . '&amp;description=' . $row['description'] .
             //    '&amp;rating=' . $row['rating'] .
             //    '&amp;picture=' . $row['picture'] . '">Delete</a></butt
-
+    echo '<br>';
+    echo '<br>';
+    echo '<a href="admin.php" <button id="backToAdBtn" class="btn waves-effect waves-light" type="submit" name="action">Back to Admin';
+    echo '<i class="material-icons right">perm_identity</i>';
+    echo '</button> </a>';
     ?>
 </form>
 

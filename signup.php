@@ -9,6 +9,13 @@
     <h1>Welcome to <em>Moviez</em></h1>
     <p>Make an account to be able to make a page.</p>
 </section>
+
+<style>
+    #logBtn {
+        color: #b71c1c;
+    }
+</style>
+
 <?php
 require_once('appvars.php');
 
@@ -39,7 +46,7 @@ if (isset($_POST['submit'])) {
             $data->execute(array('username'=> $username, 'password'=> $password));
 
             // Confirm success with the user
-            echo '<p>Your new account has been successfully created. You\'re now ready to <a href="login.php">log in</a>.</p>';
+            echo '<p>Your new account has been successfully created. You\'re now ready to <a id="logBtn" href="login.php">log in</a>.</p>';
 
             exit();
         }
@@ -50,17 +57,12 @@ if (isset($_POST['submit'])) {
         }
     }
     else {
-        echo '<p class="error">You must enter all of the sign-up data, including the desired password twice.</p>';
+        echo '<p class="error">You must enter all of the sign-up data.</p>';
     }
 }
 
 ?>
 <div class="form-wrap">
-    <div class="tabs">
-        <h3 class="signup-tab"><a class="active" href="signup.php">Sign Up</a></h3>
-        <h3 class="login-tab"><a href="login.php">Login</a></h3>
-    </div>
-
     <div class="tabs-content">
         <div id="signup-tab-content" class="active">
             <form class="signup-form" method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">

@@ -103,14 +103,19 @@ else if (isset($id) && isset($name) && isset($description)){
     echo '<label for="test1">Yes</label>';
     echo '<input class="with-gap" type="radio" name="confirm" value="No"checked="checked" id="test2"/>';
     echo '<label for="test2">No</label><br >';
-    echo '<input type="submit" value="Submit" name="submit" />';
+    echo '<input type="submit" value="Delete" name="submit" />';
     echo '<input type="hidden" name="id" value="' . $id . '" />';
     echo '<input type="hidden" name="name" value="' . $name . '" />';
     echo '<input type="hidden" name="description" value="' . $description . '" />';
     echo '</form>';
 }
 
-echo '<p><a href="admin.php">&lt;&lt; Back to admin page</a></p>';
+echo '<br>';
+echo '<br>';
+
+echo '<a href="admin.php" <button id="backToAdBtn" class="btn waves-effect waves-light" type="submit" name="action">Back to Admin';
+echo '<i class="material-icons right">perm_identity</i>';
+echo '</button> </a>';
 ?>
 
 </div>

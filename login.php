@@ -64,10 +64,6 @@ if (empty($_SESSION['idusers'])) {
     echo '<p class="error">' . $error_msg . '</p>';
     ?>
 <div class="form-wrap">
-    <div class="tabs">
-        <h3 class="signup-tab"><a  href="signup.php">Sign Up</a></h3>
-        <h3 class="login-tab"><a class="active" href="login.php">Login</a></h3>
-    </div>
     <div class="tabs-content">
         <div id="signup-tab-content" class="active">
             <form class="signup-form" method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">

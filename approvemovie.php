@@ -116,6 +116,8 @@ else if (isset($id) && isset($name) && isset($description)) {
     echo '<br>';
 }
 
+echo '<br>';
+echo '<br>';
 echo '<a href="admin.php" <button class="btn waves-effect waves-light" type="submit" name="action">Back to Admin';
 echo '<i class="material-icons right">perm_identity</i>';
 echo '</button> </a>';
